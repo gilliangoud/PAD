@@ -6,9 +6,19 @@
 
 <body bgcolor=white>
     HELLO
+
+    <button id="up">UP</button>
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
+        document.getElementById("up").addEventListener("click", myFunction);
+
+        function myFunction() {
+            document.getElementById("up").innerHTML = "YOU CLICKED ME!";
+            let direction = "UP";
+            socket.emit("moveUp", direction.toUpperCase());
+        }
     </script>
 </body>
 
