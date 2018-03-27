@@ -3,7 +3,7 @@ class BoardController {
         var PythonShell = require('python-shell');
         var options = {
             mode: 'json',
-            scriptPath: 'C:/Github/PAD/Pad/board/',
+            scriptPath: __dirname,
             args: [cols, rows, leds]
         };
         this.pyshell = new PythonShell('./driver.py', options);
