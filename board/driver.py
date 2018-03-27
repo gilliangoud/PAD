@@ -19,12 +19,10 @@ index  = 0
 def get_led_position(coll ,pos_x ,pos_y):
         index = 0
         if(pos_y % 2):
-            print("oneven")
             index = (pos_y*coll)-(coll-pos_x)
         else:
-            print("even")
             index = (pos_y*coll)-(pos_x-1)
-        print(index)
+        print("index:",index)
         return index-1
 
 #led_strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
@@ -33,12 +31,14 @@ index = get_led_position(coll,current_x,current_y)
 
 #Read data from stdin
 def read_in():
-    lines = sys.stdin.readlines()
-    return json.loads(lines[0])
+    lines = sys.stdin.readline()
+    return json.loads(lines)
 
 while (True):
     #led_strip.setPixelColor(index,Color(255,255,0))
+    sys.stdout.flush()
     data = read_in()
+    sys.stdout.flush()
     if data:
         current_x = data['x']
         current_y = data['y']
