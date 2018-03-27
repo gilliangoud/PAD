@@ -8,6 +8,7 @@ var io = require('socket.io')(http);
 var gameRoutes = require('./routes.js');
 var gameController = require('./models/Game.js');
 var PlayerController = require('./models/Player.js');
+var boardController = require('./board/BoardController.js');
 const COLLUMNS = 3;
 const ROWS = 3;
 const MAX_LEDS = 9;

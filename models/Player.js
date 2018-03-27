@@ -11,13 +11,14 @@ Player = class Player {
         let old_y = this.y;
 
         switch(direction){
-            case "UP": this.y++; break;
-            case "DOWN": this.y--; break;
-            case "RIGHT": this.x++; break;
-            case "LEFT": this.x--; break;
-            default: console.log("No direction given");
+            case "up": this.y++; break;
+            case "down": this.y--; break;
+            case "right": this.x++; break;
+            case "left": this.x--; break;
+            default: console.log("No direction given " + direction); return;
         }
-        global.board.sendData();
+        console.log("Player moved " + direction);
+        global.board.sendLocation(this.x, this.y);
     }
 }
 

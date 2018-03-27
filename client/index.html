@@ -8,16 +8,20 @@
     HELLO
 
     <button id="up">UP</button>
+    <button id="down">down</button>
+    <button id="left">left</button>
+    <button id="right">right</button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
         document.getElementById("up").addEventListener("click", myFunction);
+        document.getElementById("down").addEventListener("click", myFunction);
+        document.getElementById("left").addEventListener("click", myFunction);
+        document.getElementById("right").addEventListener("click", myFunction);
 
         function myFunction() {
-            document.getElementById("up").innerHTML = "YOU CLICKED ME!";
-            let direction = "UP";
-            socket.emit("moveUp", direction.toUpperCase());
+            socket.emit("move", this.id);
         }
     </script>
 </body>

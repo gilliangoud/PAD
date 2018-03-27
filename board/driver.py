@@ -2,7 +2,7 @@ import json
 import sys
 import time
 
-from neopixel import *
+#from neopixel import *
 
 LED_COUNT   = int(sys.argv[3])      # Number of LED pixels.
 LED_PIN     = 21      # GPIO pin connected to the pixels (must support PWM!).
@@ -16,16 +16,6 @@ coll = int(sys.argv[1])
 rows = int(sys.argv[2])
 index  = 0
 
-led_strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
-led_strip.begin()
-index = get_led_position(coll,current_x,current_y)
-
-while (True):
-    led_strip.setPixelColor(index,Color(255,255,0))
-    data = read_in()
-    print(data)
-    led_strip.show()
-
 def get_led_position(coll ,pos_x ,pos_y):
         index = 0
         if(pos_y % 2):
@@ -37,7 +27,20 @@ def get_led_position(coll ,pos_x ,pos_y):
         print(index)
         return index-1
 
+#led_strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
+#led_strip.begin()
+index = get_led_position(coll,current_x,current_y)
+
 #Read data from stdin
 def read_in():
     lines = sys.stdin.readlines()
     return json.loads(lines[0])
+
+while (True):
+    #led_strip.setPixelColor(index,Color(255,255,0))
+    data = read_in()
+    if data:
+        current_x = data['x']
+        current_y = data['y']
+    index = get_led_position(coll,current_x,current_y)
+    #led_strip.show()

@@ -1,12 +1,30 @@
 class BoardController {
-    constructor(cols, rows, leds){
-        var spawn = require('child_process').spawn,
-            py = spawn('python', ['./driver.py', cols, rows, leds]);
+    constructor(cols, rows, leds) {
+        var PythonShell = require('python-shell');
+        var options = {
+            mode: 'json',
+            scriptPath: 'C:/Github/PAD/Pad/board/',
+            args: [cols, rows, leds]
+        };
+        this.pyshell = new PythonShell('./driver.py', options);
+
+        this.pyshell.on('message', function (message) {
+            console.log(message);
+        });
     }
 
     sendData(data) {
-        this.py.stdin.write(JSON.stringify(data));
-        this.py.stdin.end();
+        console.log("send to python: " + data);
+        this.pyshell.send(data);
+    }
+
+    sendLocation(x, y) {
+        let data = [{
+            'x': x,
+            'y': y
+        }]
+        this.pyshell.send(data);
+        console.log("send to python: " + data);
     }
 }
 
