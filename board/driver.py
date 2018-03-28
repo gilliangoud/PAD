@@ -35,12 +35,13 @@ def read_in():
     return json.loads(lines)
 
 while (True):
-    #led_strip.setPixelColor(index,Color(255,255,0))
     sys.stdout.flush()
     data = read_in()
     sys.stdout.flush()
     if data:
         current_x = data['x']
         current_y = data['y']
+    #led_strip.setPixelColor(index,Color(0,0,0))
     index = get_led_position(coll,current_x,current_y)
+    #led_strip.setPixelColor(index,Color(255,255,0))
     #led_strip.show()
