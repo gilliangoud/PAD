@@ -1,4 +1,4 @@
-<html>
+<html id="Controls">
 
 <head>
     <title>Sample "Hello, World" Application</title>
@@ -6,10 +6,11 @@
 
 <body bgcolor=white>
     <p id="topBox">
-        <button id="home">Home</button>
+        prototype webapp SSS05
     </p>
-    
-    
+
+    <div class="userName" id="data"></div>
+
     <p id="controlsBox">
         <button id="up">Up</button>
         <button id="down">Down</button>
@@ -31,6 +32,7 @@
             socket.emit("move", this.id);
         }
 
+
         /*
         function myAction() {
             //code voor actions
@@ -40,8 +42,18 @@
 
     </script>
 
+    <script language="JavaScript">
+        function processForm() {
+            var parameters = location.search.substring(1).split("&");
+            var temp = parameters[0].split("=");
+            l = unescape(temp[1]);
+            document.getElementById("data").innerHTML = l;
+        }
+        processForm();
+    </script>
+
     <style>
-        #controlsBox{
+        #controlsBox {
             width: 480px;
             height: 170px;
             position: absolute;
@@ -50,7 +62,7 @@
             background-color: grey;
         }
 
-        #topBox{
+        #topBox {
             width: 280px;
             height: 25px;
             position: absolute;
@@ -59,10 +71,20 @@
             background-color: grey;
         }
 
+        .userName {
+            text-align: left;
+            font-family: Tahoma;
+            position: absolute;
+            top: 100px;
+            left: 15%;
+            font-weight: bold;
+            font-size: 50px;
+            color: #c60e0e;
+        }
     </style>
 
     <script>
-        
+
         //styling Up
         document.getElementById("up").style.backgroundColor = "#731094";
         document.getElementById("up").style.width = "150px";
@@ -126,3 +148,4 @@
 </body>
 
 </html>
+
