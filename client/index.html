@@ -5,12 +5,19 @@
 </head>
 
 <body bgcolor=white>
-    HELLO
+    <p id="topBox">
+        prototype webapp SSS05
+    </p>
 
-    <button id="up">UP</button>
-    <button id="down">down</button>
-    <button id="left">left</button>
-    <button id="right">right</button>
+    <div class="userName" id="data"></div>
+
+    <p id="controlsBox">
+        <button id="up">Up</button>
+        <button id="down">Down</button>
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="action">Action</button>
+    </p>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -19,11 +26,126 @@
         document.getElementById("down").addEventListener("click", myFunction);
         document.getElementById("left").addEventListener("click", myFunction);
         document.getElementById("right").addEventListener("click", myFunction);
+        document.getElementById("action").addEventListener("click", myAction);
 
         function myFunction() {
             socket.emit("move", this.id);
         }
+
+
+        /*
+        function myAction() {
+            //code voor actions
+        }
+        */
+
+
+    </script>
+
+    <script language="JavaScript">
+        function processForm() {
+            var parameters = location.search.substring(1).split("&");
+            var temp = parameters[0].split("=");
+            l = unescape(temp[1]);
+            document.getElementById("data").innerHTML = l;
+        }
+        processForm();
+    </script>
+
+    <style>
+        #controlsBox {
+            width: 480px;
+            height: 170px;
+            position: absolute;
+            top: 35%;
+            left: 5px;
+            background-color: grey;
+        }
+
+        #topBox {
+            width: 280px;
+            height: 25px;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            background-color: grey;
+        }
+
+        .userName {
+            text-align: left;
+            font-family: Tahoma;
+            position: absolute;
+            top: 100px;
+            left: 15%;
+            font-weight: bold;
+            font-size: 50px;
+            color: #c60e0e;
+        }
+    </style>
+
+    <script>
+
+        //styling Up
+        document.getElementById("up").style.backgroundColor = "#731094";
+        document.getElementById("up").style.width = "150px";
+        document.getElementById("up").style.height = "45px";
+        document.getElementById("up").style.textAlign = "center";
+        document.getElementById("up").style.fontWeight = "bold";
+        document.getElementById("up").style.borderRadius = "15px";
+        document.getElementById("up").style.boxShadow = "5px 5px 2px";
+        document.getElementById("up").style.position = "absolute";
+        document.getElementById("up").style.top = "10px";
+        document.getElementById("up").style.left = "165px";
+
+        //styling Down
+        document.getElementById("down").style.backgroundColor = "#731094";
+        document.getElementById("down").style.width = "150px";
+        document.getElementById("down").style.height = "45px";
+        document.getElementById("down").style.textAlign = "center";
+        document.getElementById("down").style.fontWeight = "bold";
+        document.getElementById("down").style.borderRadius = "15px";
+        document.getElementById("down").style.boxShadow = "5px 5px 2px";
+        document.getElementById("down").style.position = "absolute";
+        document.getElementById("down").style.top = "110px";
+        document.getElementById("down").style.left = "165px";
+
+        //styling Left
+        document.getElementById("left").style.backgroundColor = "#731094";
+        document.getElementById("left").style.width = "150px";
+        document.getElementById("left").style.height = "45px";
+        document.getElementById("left").style.textAlign = "center";
+        document.getElementById("left").style.fontWeight = "bold";
+        document.getElementById("left").style.borderRadius = "15px";
+        document.getElementById("left").style.boxShadow = "5px 5px 2px";
+        document.getElementById("left").style.position = "absolute";
+        document.getElementById("left").style.top = "60px";
+        document.getElementById("left").style.left = "10px";
+
+        //styling Right
+        document.getElementById("right").style.backgroundColor = "#731094";
+        document.getElementById("right").style.width = "150px";
+        document.getElementById("right").style.height = "45px";
+        document.getElementById("right").style.textAlign = "center";
+        document.getElementById("right").style.fontWeight = "bold";
+        document.getElementById("right").style.borderRadius = "15px";
+        document.getElementById("right").style.boxShadow = "5px 5px 2px";
+        document.getElementById("right").style.position = "absolute";
+        document.getElementById("right").style.top = "60px";
+        document.getElementById("right").style.left = "320px";
+
+        //styling Action
+        document.getElementById("action").style.backgroundColor = "red";
+        document.getElementById("action").style.width = "150px";
+        document.getElementById("action").style.height = "45px";
+        document.getElementById("action").style.textAlign = "center";
+        document.getElementById("action").style.fontWeight = "bold";
+        document.getElementById("action").style.borderRadius = "15px";
+        document.getElementById("action").style.boxShadow = "5px 5px 2px";
+        document.getElementById("action").style.position = "absolute";
+        document.getElementById("action").style.top = "60px";
+        document.getElementById("action").style.left = "165px";
     </script>
 </body>
 
 </html>
+
