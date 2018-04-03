@@ -9,14 +9,21 @@
         prototype webapp SSS05
     </p>
 
+
+
     <div class="userName" id="data"></div>
 
+    <div class="box">    
+        <label for="Action points"><abbr title="Action points">Action points</abbr></label>
+        <input id="qty" class="input" value="10" />
+    </div>
+
     <p id="controlsBox">
-        <button id="up">Up</button>
-        <button id="down">Down</button>
-        <button id="left">Left</button>
-        <button id="right">Right</button>
-        <button id="action">Action</button>
+        <button id="up" onclick="modify_qty(-1)">Up</button>
+        <button id="down" onclick="modify_qty(-1)">Down</button>
+        <button id="left" onclick="modify_qty(-1)">Left</button>
+        <button id="right" onclick="modify_qty(-1)">Right</button>
+        <button id="action" onclick="modify_qty(-3)">Action</button>
     </p>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -33,11 +40,19 @@
         }
 
 
-        /*
-        function myAction() {
-            //code voor actions
-        }
-        */
+        
+    function modify_qty(val) {
+        var qty = document.getElementById('qty').value;
+        var new_qty = parseInt(qty,10) + val;
+    
+        if (new_qty == 0) {
+        new_qty = 10;
+    }
+    
+    document.getElementById('qty').value = new_qty;
+    return new_qty;
+}
+        
 
 
     </script>
@@ -53,11 +68,12 @@
     </script>
 
     <style>
+
         #controlsBox {
             width: 480px;
             height: 170px;
             position: absolute;
-            top: 35%;
+            top: 50%;
             left: 5px;
             background-color: grey;
         }
@@ -75,12 +91,40 @@
             text-align: left;
             font-family: Tahoma;
             position: absolute;
-            top: 100px;
-            left: 15%;
+            top: 25%;
+            left: 2%;
             font-weight: bold;
             font-size: 50px;
             color: #c60e0e;
         }
+
+         .box {
+            background-color: #444;
+            color: #C4BE92;
+            text-align: center;
+            -webkit-border-radius: 12px;
+            border-radius: 12px; 
+            -moz-background-clip: padding; 
+            -webkit-background-clip: padding-box; 
+            background-clip: padding-box;
+            padding: .8em .8em 1em;
+            width: 8em;
+            position: absolute;
+            top: 25%;
+            left: 28%;
+            -webkit-box-shadow: 0px 0px 12px 0px #000;
+            box-shadow: 0px 0px 12px 0px #000;
+        }
+
+        .input {
+         font-size: 2.4em;
+         background-color: transparent;
+         text-align: center;
+         border-width: 0;
+         width: 100%;
+         margin: 0 0 .1em 0;
+         color: #fff;
+     }
     </style>
 
     <script>
