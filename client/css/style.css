@@ -1,0 +1,167 @@
+﻿body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.h1 {
+    text-align: center;
+    font-family: Tahoma;
+    position: absolute;
+    top: 30%;
+    left: 170px;
+}
+
+.h2 {
+    color: purple;
+}
+
+
+
+
+
+
+
+#controlsBox {
+    width: 480px;
+    height: 170px;
+    position: absolute;
+    top: 35%;
+    left: 5px;
+    background-color: grey;
+}
+
+#topBox {
+    width: 280px;
+    height: 25px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: grey;
+}
+
+.userName {
+    text-align: left;
+    font-family: Tahoma;
+    position: absolute;
+    top: 100px;
+    left: 15%;
+    font-weight: bold;
+    font-size: 50px;
+    color: #c60e0e;
+}
+
+.button {
+    background-color: red;
+}
+
+
+#backGround img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.6;
+}
+
+
+#action {
+    width: 150px;
+    height: 45px;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 60px;
+    left: 165px;
+}
+    #action:hover {
+        background: #c60e0e;
+        color: #360;
+    }
+
+#up {
+    width: 150px;
+    height: 45px;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 10px;
+    left: 165px;
+}
+
+    #up:hover {
+        background: #c60e0e;
+        color: #000;
+    }
+
+#down {
+    width: 150px;
+    height: 45px;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 110px;
+    left: 165px;
+}
+
+    #down:hover {
+        background: #c60e0e;
+        color: #000;
+    }
+
+#right {
+    width: 150px;
+    height: 45px;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 60px;
+    left: 320px;
+}
+
+    #right:hover {
+        background: #c60e0e;
+        color: #000;
+    }
+
+#left {
+    width: 150px;
+    height: 45px;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}
+
+    #left:hover {
+        background: #c60e0e;
+        color: #000;
+    }
