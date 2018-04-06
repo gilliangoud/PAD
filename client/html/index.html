@@ -1,33 +1,74 @@
 <html>
 
 <head>
-    <title>Sample "Hello, World" Application</title>
+    <title> Moord Huis</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
-    </script>
-    <script src="../js/javaInventory.js"></script>
-    
 </head>
-
 <body bgcolor=white>
 
-    <p id="topBox">
-        prototype webapp SSS05
-    </p>
+    <div id="signDiv">
+        <h2 class="h2">Welkom</h2>
+        Gebruikersnaam:<br>
+        <input id="signDiv-username" type="text"></input><br>
+        Gamecode:<br> <input id="signDiv-gamecode" type="text"></input><br>
+        <button id="signDiv-signIn">Sign In</button>
+        <button id="signDiv-signUp">Sign Up</button>
+    </div>
 
-    <div class="userName" id="data"></div>
+    <div id="gameDiv" style="display:none;">
+        <p id="topBox">
+            prototype webapp SSS05
+        </p>
 
-    <p id="controlsBox">
-        <button id="up">Up</button>
-        <button id="down">Down</button>
-        <button id="left">Left</button>
-        <button id="right">Right</button>
-        <button id="action">Action</button>
-    </p>
+        <p id="usernamBox">
+            <div id="userName">
+                <script>
+                    console.log(socket.id)
+                </script>
+            </div>
+        </p>
 
-    <script src="/socket.io/socket.io.js"></script>
+        <p id="controlsBox">
+            <button id="up">Up</button>
+            <button id="down">Down</button>
+            <button id="left">Left</button>
+            <button id="right">Right</button>
+            <button id="action">Action</button>
+        </p>
+    </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script>
         var socket = io();
+
+        //sign
+        var signDiv = document.getElementById('signDiv');
+        var signDivUsername = document.getElementById('signDiv-username');
+        var signDivSignIn = document.getElementById('signDiv-signIn');
+        var signDivSignUp = document.getElementById('signDiv-signUp');
+        var signDivGamecode = document.getElementById('signDiv-gamecode');
+
+        signDivSignIn.onclick = function () {
+            socket.emit('signIn', { username: signDivUsername.value, gamecode: signDivGamecode.value });
+        }
+        signDivSignUp.onclick = function () {
+            socket.emit('signUp', { username: signDivUsername.value, gamecode: signDivGamecode.value });
+        }
+        socket.on('signInResponse', function (data) {
+            if (data.success) {
+                signDiv.style.display = 'none';
+                gameDiv.style.display = 'inline-block';
+            } else
+                alert("Sign in unsuccessul.");
+        });
+        socket.on('signUpResponse', function (data) {
+            if (data.success) {
+                alert("Sign up successul.");
+            } else
+                alert("Sign up unsuccessul.");
+        });
+
+        //game
         document.getElementById("up").addEventListener("click", myFunction);
         document.getElementById("down").addEventListener("click", myFunction);
         document.getElementById("left").addEventListener("click", myFunction);
@@ -39,31 +80,28 @@
         }
 
 
-        /*
-        function myAction() {
-            //code voor actions
-        }
-        */
+                /*
+                function myAction() {
+                    //code voor actions
+                }
+                */
+
+
 
 
     </script>
 
-    <script>
-        playerInventory = Inventory();
+    <!-- <script>
+         var Inventory = new Inventory(null);
+         socket.on('updateInventory', function (items) {
+             inventory.items = items;
+             Inventory.refreshRender();
+         });
 
-    </script>
+     </script>
+        -->
 
-    <script language="JavaScript">
-        function processForm() {
-            var parameters = location.search.substring(1).split("&");
-            var temp = parameters[0].split("=");
-            l = unescape(temp[1]);
-            document.getElementById("data").innerHTML = l;
-        }
-        processForm();
-    </script>
 
-    
 </body>
 
 </html>

@@ -4,6 +4,7 @@ Player = class Player {
         this.x = 1;
         this.y = 1;
         this.color;
+        //this.inventory = new Inventory(Player.socketID);
     }
 
     move(direction) {

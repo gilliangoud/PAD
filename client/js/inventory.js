@@ -1,6 +1,7 @@
 ﻿Inventory = function () {
     var self = {
-        items : []
+        items: [],
+        socket: socket,
     }
 
     self.addItem = function (id, amount) {
@@ -37,6 +38,13 @@
     }
 
     self.refreshRender = function () {
+        //server
+        if (self.socket) {
+            self.socket.emit('updateInventory', self.items);
+            return;
+        }
+
+        //client only
         var str = " ";
         for (var i = 0; i < self.items.length; i++) {
             let item = Item.List[self.items[i].id];
