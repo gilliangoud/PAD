@@ -37,7 +37,10 @@
         </p>
     </div>
 
+    <div id="inventory"></div>
+
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="../js/inventory.js"></script>
     <script>
         var socket = io();
 
@@ -68,12 +71,19 @@
                 alert("Sign up unsuccessul.");
         });
 
+        //inventory
+        var inventory = new Inventory(null);
+        socket.on('updateInventory', function (item) {
+            inventory.items = item;
+            inventory.refreshRender();
+        });
+
         //game
         document.getElementById("up").addEventListener("click", myFunction);
         document.getElementById("down").addEventListener("click", myFunction);
         document.getElementById("left").addEventListener("click", myFunction);
         document.getElementById("right").addEventListener("click", myFunction);
-        document.getElementById("action").addEventListener("click", myAction);
+        //document.getElementById("action").addEventListener("click", myAction);
 
         function myFunction() {
             socket.emit("move", this.id);

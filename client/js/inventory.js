@@ -1,9 +1,8 @@
-﻿Inventory = function () {
+﻿Inventory = function (socket) {
     var self = {
-        items: [],
+        items: [], //{id:"itemId",amount:1}
         socket: socket,
     }
-
     self.addItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
@@ -12,22 +11,20 @@
                 return;
             }
         }
-        self.items.push({ id: id, amount: amount })
+        self.items.push({ id: id, amount: amount });
         self.refreshRender();
     }
-
     self.removeItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
                 self.items[i].amount -= amount;
                 if (self.items[i].amount <= 0)
-                    self.items.splice(1, 1);
+                    self.items.splice(i, 1);
                 self.refreshRender();
                 return;
             }
         }
     }
-
     self.hasItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
@@ -36,7 +33,6 @@
         }
         return false;
     }
-
     self.refreshRender = function () {
         //server
         if (self.socket) {
@@ -45,17 +41,20 @@
         }
 
         //client only
-        var str = " ";
+        var str = "";
         for (var i = 0; i < self.items.length; i++) {
             let item = Item.List[self.items[i].id];
-            str += item.name + " ";
+            let onclick = "Item.List['" + item.id + "'].event()";
+            str += "<button onclick=\"" + onclick + "\">" + item.name + " x" + self.items[i].amount + "</button><br>";
         }
 
         document.getElementById("inventory").innerHTML = str;
     }
 
+
     return self;
 }
+
 
 Item = function (id, name, event) {
     var self = {

@@ -1,10 +1,11 @@
 Player = class Player {
-    constructor (socketID){
+    constructor(socketID,Username) {
         this.id = socketID;
+        this.username = Username;
         this.x = 1;
         this.y = 1;
         this.color;
-        //this.inventory = new Inventory(Player.socketID);
+        this.inventory = new Inventory(socketID.socket);
     }
 
     move(direction) {
@@ -24,3 +25,4 @@ Player = class Player {
 }
 
 module.exports = Player;
+

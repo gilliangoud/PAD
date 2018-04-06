@@ -8,6 +8,7 @@ var io = require('socket.io')(http);
 var gameRoutes = require('./routes.js');
 var gameController = require('./models/Game.js');
 var PlayerController = require('./models/Player.js');
+var InventoryController = require('./client/js/inventory');
 //var boardController = require('./board/BoardController.js');
 const COLLUMNS = 3;
 const ROWS = 3;
@@ -24,22 +25,24 @@ let game = new Game();
 
 var SOCKET_LIST = {};
 
-Player.list = new Player();
-Player.onConnect = function (socket) {
-    let player = new Player(socket.id);
-    game.addPlayer(player);
-    gameRoutes.start(socket, player);
-}
-Player.onDisconnect = function (socket) {
-    delete Player.list[socket.id];
-}
+var DEBUG = true;
 
+ Player.list = {};
+    Player.onConnect = function (socket, username) {
+        let player = new Player(socket.id, username);
+        game.addPlayer(player);
+        gameRoutes.start(socket, player);
+    }
 
+    Player.onDisconnect = function (socket) {
+        delete Player.list[socket.id];
+    }
 var USERS = {
     //username:password
     "Siebe": "403",
     "bob2": "bob",
     "bob3": "ttt",
+    "kip": "",
 }
 
 var isValidPassword = function (data, cb) {
@@ -60,14 +63,13 @@ var addUser = function (data, cb) {
 };
 
 io.sockets.on('connection', function (socket) {
-    let player = new Player(socket.id);
-    socket.id = Math.random();
+    socket.id = Math.random(1, 10);
 
 
     socket.on('signIn', function (data) {
         isValidPassword(data, function (res) {
             if (res) {
-                Player.onConnect(socket);
+                Player.onConnect(socket, data.username);
                 socket.emit('signInResponse', { success: true });
             } else {
                 socket.emit('signInResponse', { success: false });
@@ -85,7 +87,6 @@ io.sockets.on('connection', function (socket) {
             }
         });
     });
-
 });
 
 http.listen(3000, function () {
