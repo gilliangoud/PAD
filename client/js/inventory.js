@@ -1,7 +1,7 @@
-﻿Inventory = function (socket) {
+﻿Inventory = function (socketID) {
     var self = {
         items: [], //{id:"itemId",amount:1}
-        socket: socket,
+        socket: socketID,
     }
     self.addItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {

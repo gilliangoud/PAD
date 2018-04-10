@@ -21,22 +21,26 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/client/html/index.html');
 });
 
+
 let game = new Game();
 
 var SOCKET_LIST = {};
 
 var DEBUG = true;
 
- Player.list = {};
-    Player.onConnect = function (socket, username) {
-        let player = new Player(socket.id, username);
-        game.addPlayer(player);
-        gameRoutes.start(socket, player);
-    }
 
-    Player.onDisconnect = function (socket) {
+Player.list = {};
+
+Player.onConnect = function (socket, username) {
+    let player = new Player(socket.id, socket.socket, username);
+    game.addPlayer(player);
+    gameRoutes.start(socket, player);
+}
+
+Player.onDisconnect = function (socket) {
         delete Player.list[socket.id];
-    }
+}
+
 var USERS = {
     //username:password
     "Siebe": "403",
@@ -64,6 +68,7 @@ var addUser = function (data, cb) {
 
 io.sockets.on('connection', function (socket) {
     socket.id = Math.random(1, 10);
+    SOCKET_LIST[socket.id] = socket;
 
 
     socket.on('signIn', function (data) {
@@ -87,7 +92,24 @@ io.sockets.on('connection', function (socket) {
             }
         });
     });
+    socket.on('disconnect', function () {
+        delete SOCKET_LIST[socket.id];
+        Player.onDisconnect(socket);
+        });
 });
+
+var initPack = { player: [] };
+
+setInterval(function () {
+    var packs = Player.getFrameUpdateData();
+    for (var i in SOCKET_LIST) {
+        var socket = SOCKET_LIST[i];
+        socket.emit('init', packs.initPack);
+        //socket.emit('update', packs.updatePack);
+        //socket.emit('remove', packs.removePack);
+    }
+    initPack.player = [];
+},1000/25);
 
 http.listen(3000, function () {
   console.log('listening on *:3000');
