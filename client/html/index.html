@@ -17,8 +17,9 @@
 
     <div id="gameDiv" style="display:none;">
         <p id="topBox">
-            prototype webapp SSS05
+            prototype webapp controls
         </p>
+
 
 
         <p id="controlsBox">
@@ -28,12 +29,28 @@
             <button id="right">Right</button>
             <button id="action">Action</button>
         </p>
+
+        <div id="inventory"></div>
+
     </div>
 
-    <div id="inventory"></div>
+    
+    <div id="inventoryDiv" style="display:none;">
+
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <div id="inventory"></div>
+
+
+    </div>
+    
 
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
     <script src="../js/inventory.js"></script>
+
     <script>
         var socket = io();
 
@@ -66,8 +83,8 @@
 
         //inventory
         var inventory = new Inventory(null);
-        socket.on('updateInventory', function (item) {
-            inventory.items = item;
+        socket.on('updateInventory', function (items) {
+            inventory.items = items;
             inventory.refreshRender();
         });
 
@@ -76,8 +93,7 @@
         document.getElementById("down").addEventListener("click", myFunction);
         document.getElementById("left").addEventListener("click", myFunction);
         document.getElementById("right").addEventListener("click", myFunction);
-        //document.getElementById("action").addEventListener("click", myAction);
-
+        document.getElementById("action").addEventListener("click", myAction);
 
         //player
         var Player = function (initPack) {
@@ -90,7 +106,7 @@
         }
         Player.list = {};
 
-    
+
         socket.on('init', function (data) {
             //{player : [{id:123,number:'1' ,x:0,y:0},{id:1,number:'2',x:0,y:0}],
             for (var i = 0; i < data.player.length; i++) {
@@ -104,7 +120,7 @@
                 var pack = data.player[i];
                 var p = Player.list[pack.id];
                 if (p) {
-                    
+
                 }
             }
         })
@@ -113,13 +129,18 @@
             socket.emit("move", this.id);
         }
 
+        function myAction() {
+            inventory.addItem('test', 1);
+        }
 
-                /*
-                function myAction() {
-                    //code voor actions
-                }
-                */
 
+                    /*
+                    function myAction() {
+                        //code voor actions
+                        inventory.addItem('test', 1);
+                    }
+
+            */
 
 
 

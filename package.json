@@ -8,8 +8,10 @@
     "description": "a gameserver app",
     "dependencies": {
         "express": "^4.16.3",
+        "mongojs": "^2.5.0",
         "npm": "^5.8.0",
         "python-shell": "^0.5.0",
+        "save": "^2.3.2",
         "socket.io": "^2.1.0"
     }
 }

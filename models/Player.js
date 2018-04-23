@@ -6,14 +6,13 @@ Player = class Player {
 
     constructor(socketID, socket, username) {
         
-
         this.id = socketID;
         this.socket = socket;
         this.username = username;
         this.x = 1;
         this.y = 1;
         this.color;
-        this.inventory = new Inventory(socketID.socket);
+        this.inventory = new Inventory(socketID);
 
         this.getInitPack = function () {
             return {
@@ -23,6 +22,7 @@ Player = class Player {
             }
         }
 
+        Player.list[this.id] = this;
         initPack.player.push(this.getInitPack());
         return this; 
 

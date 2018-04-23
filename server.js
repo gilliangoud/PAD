@@ -8,12 +8,13 @@ var io = require('socket.io')(http);
 var gameRoutes = require('./routes.js');
 var gameController = require('./models/Game.js');
 var PlayerController = require('./models/Player.js');
-var InventoryController = require('./client/js/inventory');
 //var boardController = require('./board/BoardController.js');
 const COLLUMNS = 3;
 const ROWS = 3;
 const MAX_LEDS = 9;
 //global.board = new boardController(COLLUMNS, ROWS, MAX_LEDS);
+
+require('./client/js/inventory');
 
 app.use(express.static(path.join(__dirname, 'client')));
 
@@ -67,7 +68,7 @@ var addUser = function (data, cb) {
 };
 
 io.sockets.on('connection', function (socket) {
-    socket.id = Math.random(1, 10);
+    socket.id = Math.random();
     SOCKET_LIST[socket.id] = socket;
 
 

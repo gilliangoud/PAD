@@ -3,6 +3,7 @@
         items: [], //{id:"itemId",amount:1}
         socket: socketID,
     }
+
     self.addItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
@@ -14,6 +15,7 @@
         self.items.push({ id: id, amount: amount });
         self.refreshRender();
     }
+
     self.removeItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
@@ -25,6 +27,7 @@
             }
         }
     }
+
     self.hasItem = function (id, amount) {
         for (var i = 0; i < self.items.length; i++) {
             if (self.items[i].id === id) {
@@ -33,6 +36,7 @@
         }
         return false;
     }
+
     self.refreshRender = function () {
         //server
         if (self.socket) {
@@ -68,7 +72,7 @@ Item = function (id, name, event) {
 Item.List = {};
 
 Item("test", "Test", function () {
-    textContent = "test removed";
-    playerInventory.removeItem("test", 1);
+    inventory.removeItem('test', 1);
+    alert = "test removed";
 });
 
