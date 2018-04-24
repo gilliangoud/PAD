@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <title> Moord Huis</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body bgcolor=white>
+
+    <div id="signDiv">
+        <h2 class="h2">Welkom</h2>
+        Gebruikersnaam:<br>
+        <input id="signDiv-username" type="text"></input><br>
+        Gamecode:<br> <input id="signDiv-gamecode" type="text"></input><br>
+        <button id="signDiv-signIn">Sign In</button>
+        <button id="signDiv-signUp">Sign Up</button>
+    </div>
+
+    <div id="gameDiv" style="display:none;">
+        <p id="topBox">
+            prototype webapp controls
+        </p>
+
+
+
+        <p id="controlsBox">
+            <button id="up">Up</button>
+            <button id="down">Down</button>
+            <button id="left">Left</button>
+            <button id="right">Right</button>
+            <button id="action">Action</button>
+            <button id="inventoryScreen"> Inventory</button>
+        </p>
+
+        <div id="inventory"></div>
+
+    </div>
+
+    
+    <div id="inventoryDiv" style="display:none;">
+
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <button id="main"> Main </button>
+
+        <div id="inventory"></div>
+
+
+    </div>
+    
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script src="../js/inventory.js"></script>
+
+    <script>
+        var socket = io();
+
+        //sign
+        var signDiv = document.getElementById('signDiv');
+        var signDivUsername = document.getElementById('signDiv-username');
+        var signDivSignIn = document.getElementById('signDiv-signIn');
+        var signDivSignUp = document.getElementById('signDiv-signUp');
+        var signDivGamecode = document.getElementById('signDiv-gamecode');
+
+        signDivSignIn.onclick = function () {
+            socket.emit('signIn', { username: signDivUsername.value, gamecode: signDivGamecode.value });
+        }
+        signDivSignUp.onclick = function () {
+            socket.emit('signUp', { username: signDivUsername.value, gamecode: signDivGamecode.value });
+        }
+        socket.on('signInResponse', function (data) {
+            if (data.success) {
+                signDiv.style.display = 'none';
+                gameDiv.style.display = 'inline-block';
+            } else
+                alert("Sign in unsuccessul.");
+        });
+        socket.on('signUpResponse', function (data) {
+            if (data.success) {
+                alert("Sign up successul.");
+            } else
+                alert("Sign up unsuccessul.");
+        });
+
+//inventory
+var inventory = new Inventory(null);
+socket.on('updateInventory', function (items) {
+    inventory.items = items;
+    inventory.refreshRender();
+    });
+//game
+document.getElementById("up").addEventListener("click", myFunction);
+document.getElementById("down").addEventListener("click", myFunction);
+document.getElementById("left").addEventListener("click", myFunction);
+document.getElementById("right").addEventListener("click", myFunction);
+//actions
+document.getElementById("action").addEventListener("click", myAction);
+document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+document.getElementById("main").addEventListener("click", myMain);
+
+//player
+var Player = function (initPack) {
+    var self = {};
+    self.id = initPack.id;
+    self.username = initPack.username;
+    self.color = initPack.color;
+    self.number = initPack.number;
+
+
+    Player.list[self.id] = self;
+
+    return self;
+}
+Player.list = {};
+socket.on('init', function (data) {
+    //{player : [{id:123,number:'1' ,x:0,y:0},{id:1,number:'2',x:0,y:0}],
+    for (var i = 0; i < data.player.length; i++) {
+        new Player(data.player[i]);
+    }
+});
+function myFunction() {
+    socket.emit("move", this.id);
+}
+
+function myAction() {
+    inventory.addItem('test', 1);
+}
+
+function myInventory() {
+    gameDiv.style.display = 'none';
+    inventoryDiv.style.display = 'inline-block';
+}
+
+function myMain() {
+    inventoryDiv.style.display = 'none';
+    gameDiv.style.display = 'inline-block';
+}
+
+</script>
+
+</body>
+
+</html>
+

@@ -8,8 +8,7 @@ Game = class Game {
 
     addPlayer(player) {
         this.players.push(player);
-        console.log("Player " + player.id + " added to game.");
+        console.log("Player " + player.id + " " + player.username + " added to game.");
     }
 }
-
 module.exports = Game;
