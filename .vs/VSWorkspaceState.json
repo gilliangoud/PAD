@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\client",
+    "\\client\\content",
     "\\client\\css",
     "\\client\\html",
     "\\client\\js",
     "\\models"
   ],
-  "SelectedNode": "\\server.js",
+  "SelectedNode": "\\client\\js\\inventory.js",
   "PreviewInSolutionExplorer": false
 }

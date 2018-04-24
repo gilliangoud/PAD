@@ -27,15 +27,18 @@ let game = new Game();
 
 var SOCKET_LIST = {};
 
-var DEBUG = true;
-
-
 Player.list = {};
-
 Player.onConnect = function (socket, username) {
     let player = new Player(socket.id, socket.socket, username);
     game.addPlayer(player);
     gameRoutes.start(socket, player);
+}
+
+Player.getAllInitPack = function(){
+    var players = []
+    for(var i in Player.list)
+        player.push(Player.list[i].getInitPack() );
+    return players;
 }
 
 Player.onDisconnect = function (socket) {
@@ -101,15 +104,15 @@ io.sockets.on('connection', function (socket) {
 
 var initPack = { player: [] };
 
-setInterval(function () {
-    var packs = Player.getFrameUpdateData();
-    for (var i in SOCKET_LIST) {
-        var socket = SOCKET_LIST[i];
-        socket.emit('init', packs.initPack);
+setInterval(function(){
+	var packs = Player.getFrameUpdateData();
+	for(var i in SOCKET_LIST){
+		var socket = SOCKET_LIST[i];
+		socket.emit('init',packs.initPack);
         //socket.emit('update', packs.updatePack);
         //socket.emit('remove', packs.removePack);
     }
-    initPack.player = [];
+
 },1000/25);
 
 http.listen(3000, function () {

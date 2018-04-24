@@ -16,18 +16,21 @@
 }
 
 
+body {
+    background-image: url("https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?cs=srgb&dl=abandoned-ancient-antique-235986.jpg&fm=jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+    
+}
 
-
-
-
-
+/* boxen */
 #controlsBox {
-    width: 95%;
-    height: 50%;
+    width: 99%;
+    height: 75%;
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 5px;
-    background-color: grey;
 }
 
 #topBox {
@@ -36,8 +39,10 @@
     position: absolute;
     top: 0%;
     left: 0%;
-    background-color: grey;
+    background-color: brown;
 }
+
+
 
 .userName {
     text-align: left;
@@ -61,41 +66,89 @@
     opacity: 0.6;
 }
 
-
-#action {
-    width: 150px;
-    height: 45px;
+/* actie/invetory */
+#inventoryScreen {
+    width: 20%;
+    height: 7%;
     -webkit-transition: all .2s;
     background: #000;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 175%;
     color: #731094;
     border-radius: 15px;
     box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 60px;
-    left: 165px;
+    top: 5%;
+    left: 5%;
 }
+
+#belowGame {
+    width: 25%;
+    height: 10%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+#main {
+    width: 20%;
+    height: 7%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+#action {
+    width: 20%;
+    height: 7%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+}
+
     #action:hover {
         background: #c60e0e;
         color: #360;
     }
 
+   
+/* controls*/
 #up {
-    width: 150px;
-    height: 45px;
+    width: 20%;
+    height: 7%;
     -webkit-transition: all .2s;
-    background: #000;
+    background-image: url(C:\Users\Siebe\OneDrive\School\PAD\client\content\arrowUp.png);
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 175%;
     color: #731094;
     border-radius: 15px;
     box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 10px;
-    left: 165px;
+    top: 15%;
+    left: 40%;
 }
 
     #up:hover {
@@ -104,19 +157,20 @@
     }
 
 #down {
-    width: 150px;
-    height: 45px;
+    width: 20%;
+    height: 7%;
     -webkit-transition: all .2s;
     background: #000;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 175%;
     color: #731094;
     border-radius: 15px;
     box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 110px;
-    left: 165px;
+    top: 55%;
+    left: 40%;
 }
 
     #down:hover {
@@ -125,19 +179,20 @@
     }
 
 #right {
-    width: 150px;
-    height: 45px;
+    width: 20%;
+    height: 7%;
     -webkit-transition: all .2s;
     background: #000;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 175%;
     color: #731094;
     border-radius: 15px;
     box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 60px;
-    left: 320px;
+    top: 35%;
+    left: 70%;
 }
 
     #right:hover {
@@ -146,19 +201,20 @@
     }
 
 #left {
-    width: 150px;
-    height: 45px;
+    width: 20%;
+    height: 7%;
     -webkit-transition: all .2s;
     background: #000;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 175%;
     color: #731094;
     border-radius: 15px;
     box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 60px;
-    left: 10px;
+    top: 35%;
+    left: 10%;
 }
 
     #left:hover {

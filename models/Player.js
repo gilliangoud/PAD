@@ -7,31 +7,30 @@ Player = class Player {
     constructor(socketID, socket, username) {
         
         this.id = socketID;
-        this.socket = socket;
+        this.number = "" + Math.floor(10 * Math.random());
         this.username = username;
         this.x = 1;
         this.y = 1;
         this.color;
-        this.inventory = new Inventory(socketID);
+        this.inventory = new Inventory(socket, true);
 
         this.getInitPack = function () {
             return {
                 id: this.id,
                 username: this.username,
                 color: this.color,
+                number:this.number,
             }
         }
 
         Player.list[this.id] = this;
+        
         initPack.player.push(this.getInitPack());
         return this; 
 
-        socket.emit('init', {
-            selfId: socket.id,
-            player: Player.getAllInitPack(),
-        })
+        myInit();
+
     }
- 
 
     move(direction) {
         let old_x = this.x;
@@ -47,6 +46,13 @@ Player = class Player {
         console.log("Player moved " + direction);
         global.board.sendLocation(this.x, this.y);
     }
+}
+
+function myInit(){
+    socket.emit('init', 
+        selfId = socket.id,
+        player = Player.getAllInitPack(),
+    ); 
 }
 
 Player.getFrameUpdateData= function () {

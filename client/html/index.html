@@ -28,6 +28,7 @@
             <button id="left">Left</button>
             <button id="right">Right</button>
             <button id="action">Action</button>
+            <button id="inventoryScreen"> Inventory</button>
         </p>
 
         <div id="inventory"></div>
@@ -40,6 +41,8 @@
         <p id="topBox">
             prototype webapp Inventory
         </p>
+
+        <button id="main"> Main </button>
 
         <div id="inventory"></div>
 
@@ -81,71 +84,63 @@
                 alert("Sign up unsuccessul.");
         });
 
-        //inventory
-        var inventory = new Inventory(null);
-        socket.on('updateInventory', function (items) {
-            inventory.items = items;
-            inventory.refreshRender();
-        });
+//inventory
+var inventory = new Inventory(null);
+socket.on('updateInventory', function (items) {
+    inventory.items = items;
+    inventory.refreshRender();
+    });
+//game
+document.getElementById("up").addEventListener("click", myFunction);
+document.getElementById("down").addEventListener("click", myFunction);
+document.getElementById("left").addEventListener("click", myFunction);
+document.getElementById("right").addEventListener("click", myFunction);
+//actions
+document.getElementById("action").addEventListener("click", myAction);
+document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+document.getElementById("main").addEventListener("click", myMain);
 
-        //game
-        document.getElementById("up").addEventListener("click", myFunction);
-        document.getElementById("down").addEventListener("click", myFunction);
-        document.getElementById("left").addEventListener("click", myFunction);
-        document.getElementById("right").addEventListener("click", myFunction);
-        document.getElementById("action").addEventListener("click", myAction);
-
-        //player
-        var Player = function (initPack) {
-            var self = {};
-            self.id = initPack.id;
-            self.username = initPack.username;
-            self.color = initPack.color;
-            Player.list[self.id] = self;
-            return self;
-        }
-        Player.list = {};
-
-
-        socket.on('init', function (data) {
-            //{player : [{id:123,number:'1' ,x:0,y:0},{id:1,number:'2',x:0,y:0}],
-            for (var i = 0; i < data.player.length; i++) {
-                new Player(data.player[i]);
-            }
-        });
-
-        /*
-        socket.on('update', function (data) {
-            for (var i = 0; i < data.player.length; i++) {
-                var pack = data.player[i];
-                var p = Player.list[pack.id];
-                if (p) {
-
-                }
-            }
-        })
-        */
-        function myFunction() {
-            socket.emit("move", this.id);
-        }
-
-        function myAction() {
-            inventory.addItem('test', 1);
-        }
+//player
+var Player = function (initPack) {
+    var self = {};
+    self.id = initPack.id;
+    self.username = initPack.username;
+    self.color = initPack.color;
+    self.number = initPack.number;
 
 
-                    /*
-                    function myAction() {
-                        //code voor actions
-                        inventory.addItem('test', 1);
-                    }
+    Player.list[self.id] = self;
 
-            */
+    return self;
+}
+Player.list = {};
+socket.on('init', function (data) {
+    //{player : [{id:123,number:'1' ,x:0,y:0},{id:1,number:'2',x:0,y:0}],
+    for (var i = 0; i < data.player.length; i++) {
+        new Player(data.player[i]);
+    }
+});
+function myFunction() {
+    socket.emit("move", this.id);
+}
 
+function myAction() {
+    inventory.addItem('test', 1);
+}
 
+function myInventory() {
+    gameDiv.style.display = 'none';
+    inventoryDiv.style.display = 'inline-block';
+}
 
-    </script>
+function myMain() {
+    inventoryDiv.style.display = 'none';
+    gameDiv.style.display = 'inline-block';
+}
+
+</script>
 
 </body>
 
 </html>
+
