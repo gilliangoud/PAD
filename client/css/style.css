@@ -1,0 +1,337 @@
+
+
+/* Boxen */
+#chooseName {
+    font-size: 20px;
+    color: white;
+    display: block;
+    margin: auto;
+}
+
+#topBox {
+    position: block;
+    margin: auto;
+    size: 50%;
+    background-color: grey;
+}
+
+#buttonController{
+    background-color: grey;
+    width: 99%;
+    height: 75%;
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    display: none;
+}
+
+#actionCounter{
+    top:20%;
+    display: none;
+}
+
+.ColorPickBox {
+    position: absolute;
+    background-color: grey;
+    margin: 5px;
+    width: 80px;
+    height: 80px; 
+    border: 2px solid white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 100px;
+    display: inline-block;
+}
+
+.ColorPickBox:hover {
+    border: 2px solid black;
+}
+
+.userName {
+    text-align: left;
+    font-family: Tahoma;
+    position: absolute;
+    top: 100px;
+    left: 25%;
+    font-weight: bold;
+    font-size: 50px;
+    color: #c60e0e;
+}
+
+.box {
+    background-color: #444;
+    color: #C4BE92;
+    text-align: center;
+    -webkit-border-radius: 12px;
+    border-radius: 12px; 
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 
+    background-clip: padding-box;
+    padding: .8em .8em 1em;
+    width: 8em;
+    position: absolute;
+    top: 35%;
+    left: 17%;
+    -webkit-box-shadow: 0px 0px 12px 0px #000;
+    box-shadow: 0px 0px 12px 0px #000;
+}
+
+.input {
+    font-size: 2.4em;
+    background-color: transparent;
+    text-align: center;
+    border-width: 0;
+    width: 100%;
+    margin: 0 0 .1em 0;
+    color: #fff;
+}
+
+#Login {
+    margin: auto;
+    width: 70%;
+    margin-top: 40%;
+}
+
+#ddd{
+    display: block;
+    padding-top: 200px;
+    margin: 100px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 200px;
+}
+
+#button{
+    display:block;
+    margin: auto;
+    margin-top: 10% ;
+    width: 100%;
+}
+
+
+#ColorBlue {
+    background: rgb(0,0,255);
+    left: 0%;
+}
+
+#ColorRed {
+    background: rgb(255,0,0);
+    left: 11%;
+}
+
+#ColorGreen {
+    background: #00FF00;
+    left: 22%;
+}
+
+#ColorYellow {
+    background: Yellow;
+    left: 33%;
+}
+
+#ColorOrange {
+    background: Orange;
+    left: 44%;
+}
+
+#ColorPink{
+    background: Pink;
+    left: 55%;
+}
+
+#ColorBrown {
+    background: Brown;
+    left: 66%;
+}
+
+#ColorGray {
+    background: Gray;
+    left: 77%;
+}
+
+#ColorPurple {
+    background: Purple;
+    left: 88%;
+}
+
+div.result {
+    width:50px;
+    height: 50px;
+    position: center;
+}
+
+
+
+
+#colorPicker {
+    margin: 10px;
+    background-color: grey;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-image: url("https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?cs=srgb&dl=abandoned-ancient-antique-235986.jpg&fm=jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+}
+
+.h1 {
+    text-align: center;
+    font-family: Tahoma;
+    position: absolute;
+    top: 30%;
+    left: 170px;
+}
+
+.h2 {
+    color: purple;
+}
+
+
+body {
+    
+
+}
+
+#backGround img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.6;
+}
+
+/* niet_actie/invetory */
+#inventoryScreen {
+    width: 22%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+#main {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+
+
+
+
+
+/* controls*/
+#up {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background-image: url(C:\Users\Siebe\OneDrive\School\PAD\client\content\arrowUp.png);
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+}
+
+
+
+#down {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 55%;
+    left: 40%;
+}
+
+
+
+#right {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 35%;
+    left: 70%;
+}
+
+
+
+#left {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+
+#action {
+    width: 20%;
+    height: 12%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+}
+

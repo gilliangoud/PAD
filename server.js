@@ -8,16 +8,16 @@ var io = require('socket.io')(http);
 var gameRoutes = require('./routes.js');
 var gameController = require('./models/Game.js');
 var PlayerController = require('./models/Player.js');
-var boardController = require('./board/BoardController.js');
+//var boardController = require('./board/BoardController.js');
 const COLLUMNS = 3;
 const ROWS = 3;
 const MAX_LEDS = 9;
-global.board = new boardController(COLLUMNS, ROWS, MAX_LEDS);
+//global.board = new boardController(COLLUMNS, ROWS, MAX_LEDS);
 
 app.use(express.static(path.join(__dirname, 'client')));
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/client/html/index.html');
 });
 
 let game = new Game();
