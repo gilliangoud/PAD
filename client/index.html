@@ -1,228 +1,134 @@
+<!DOCTYPE html>
 <html>
-
-    <head>
-        <title>Sample "Hello, World" Application</title>
-    </head>
-
-    <body bgcolor=grey>
-        <p id="topBox">
-            prototype webapp SSS05
-        </p>
-
-        <div class="userName" id="data"></div>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
 
 
+<center>
+<div id="chooseName">
+    Gebruikersnaam:<br>
+   <input name="GebruikersNaam" id="username" type="text" value=""><br>
+   <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
+</div>
+</center>
+<button>chooseColor</button>
 
-        <div class="box">    
-            <label for="Action points"><abbr title="Action points">Action points</abbr></label>
-            <input id="qty" class="input" value="10" disabled="true" />
-        </div>
+<div id="colorPicker">
+    <h3> Pick  a Color </h3>
+    <div class="ColorPickBox" id="ColorBlue"> Blue </div> 
+    <div class="ColorPickBox" id="ColorRed"> Red </div>
+    <div class="ColorPickBox" id="ColorGreen"> Green </div>
+    <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
+    <div class="ColorPickBox" id="ColorOrange"> Orange </div>
+    <div class="ColorPickBox" id="ColorPink"> Pink </div>
+    <div class="ColorPickBox" id="ColorBrown"> Brown </div>
+    <div class="ColorPickBox" id="ColorGray"> Gray </div>
+    <div class="ColorPickBox" id="ColorPurple"> Purple </div>
+</div>
 
+<div id="buttonController">
+<button id="up" onclick="modify_qty(-1)">Up</button>
+<button id="down" onclick="modify_qty(-1)">Down</button>
+<button id="left" onclick="modify_qty(-1)">Left</button>
+<button id="right" onclick="modify_qty(-1)">Right</button>
+<button id="action" onclick="modify_qty(-3)">Action</button>
+</div>
 
+<div class="box" id="actionCounter">    
+<label for="Action points"><abbr title="Action points">Action points</abbr></label>
+<input id="qty" class="input" value="10" disabled="true" />
+</div>
 
-
-
-
-
-        <p id="controlsBox">
-            <button id="up" onclick="modify_qty(-1)">Up</button>
-            <button id="down" onclick="modify_qty(-1)">Down</button>
-            <button id="left" onclick="modify_qty(-1)">Left</button>
-            <button id="right" onclick="modify_qty(-1)">Right</button>
-            <button id="action" onclick="modify_qty(-3)">Action</button>
-        </p>
-
-        <script src="/socket.io/socket.io.js"></script>
-        <script>
-                var socket = io();
-                document.getElementById("up").addEventListener("click", myFunction);
-                document.getElementById("down").addEventListener("click", myFunction);
-                document.getElementById("left").addEventListener("click", myFunction);
-                document.getElementById("right").addEventListener("click", myFunction);
-                document.getElementById("action").addEventListener("click", myAction);
-
-                function myFunction() {
-                    socket.emit("move", this.id);
-                }
-
-                function myAction(){
-                    socket.emit("move", this.id);
-                }
-
-                /*action deplete on move*/
-
-                function modify_qty(val) {
-                    var qty = document.getElementById('qty').value;
-                    var new_qty = parseInt(qty, 10) + val;
+</body>
 
 
-                    if (new_qty < 3) {
-                        document.getElementById("action").disabled = true;
-                    }
-
-                    if (new_qty <= 0) {
-                        new_qty = 0
-                        document.getElementById("action").disabled = true;
-                        document.getElementById("up").disabled = true;
-                        document.getElementById("down").disabled = true;
-                        document.getElementById("left").disabled = true;
-                        document.getElementById("right").disabled = true;
-
-                    }
-
-                    
-
-                    document.getElementById('qty').value = new_qty;
-                    turnOver();
-                    return turnOver();
-                }   
-                
-                    function turnOver(){
-                       ;
-                        if (new_qty === 0){
-                            socket.emit("endturn", this.id)
-                        } return new_qty;
-                        
-                    }
 
 
-        </script>
-
-        <script language="JavaScript">
-            function processForm() {
-                var parameters = location.search.substring(1).split("&");
-                var temp = parameters[0].split("=");
-                l = unescape(temp[1]);
-                document.getElementById("data").innerHTML = l;
-            }
-            processForm();
-        </script>
-
-        <style>
-            #controlsBox {
-                width: 480px;
-                height: 170px;
-                position: absolute;
-                top: 35%;
-                left: 5px;
-                background-color: grey;
-            }
-
-            #topBox {
-                width: 280px;
-                height: 25px;
-                position: absolute;
-                top: 0%;
-                left: 0%;
-                background-color: grey;
-            }
-
-            #button{
-            }
-            .userName {
-                text-align: left;
-                font-family: Tahoma;
-                position: absolute;
-                top: 100px;
-                left: 15%;
-                font-weight: bold;
-                font-size: 50px;
-                color: #c60e0e;
-            }
-
-            .box {
-                background-color: #444;
-                color: #C4BE92;
-                text-align: center;
-                -webkit-border-radius: 12px;
-                border-radius: 12px; 
-                -moz-background-clip: padding; 
-                -webkit-background-clip: padding-box; 
-                background-clip: padding-box;
-                padding: .8em .8em 1em;
-                width: 8em;
-                position: absolute;
-                top: 25%;
-                left: 28%;
-                -webkit-box-shadow: 0px 0px 12px 0px #000;
-                box-shadow: 0px 0px 12px 0px #000;
-            }
-
-            .input {
-                font-size: 2.4em;
-                background-color: transparent;
-                text-align: center;
-                border-width: 0;
-                width: 100%;
-                margin: 0 0 .1em 0;
-                color: #fff;
-            }
 
 
-        </style>
 
-        <script>
-            //styling Up
-            document.getElementById("up").style.backgroundColor = "#731094";
-            document.getElementById("up").style.width = "150px";
-            document.getElementById("up").style.height = "45px";
-            document.getElementById("up").style.textAlign = "center";
-            document.getElementById("up").style.fontWeight = "bold";
-            document.getElementById("up").style.borderRadius = "15px";
-            document.getElementById("up").style.boxShadow = "5px 5px 2px";
-            document.getElementById("up").style.position = "absolute";
-            document.getElementById("up").style.top = "10px";
-            document.getElementById("up").style.left = "165px";
+<script>
+function hideButton() {
+    var ButtonC = document.getElementById("buttonController");
+    var ActionC = document.getElementById("actionCounter");
+    var colorP = document.getElementById("colorPicker");
+    var chooseName = document.getElementById("chooseName");
+    ButtonC.style.display = "block";
+    ActionC.style.display = "block";
+    colorP.style.display = "none";
+   // chooseName.style.display = "none";
+}
 
-            //styling Down
-            document.getElementById("down").style.backgroundColor = "#731094";
-            document.getElementById("down").style.width = "150px";
-            document.getElementById("down").style.height = "45px";
-            document.getElementById("down").style.textAlign = "center";
-            document.getElementById("down").style.fontWeight = "bold";
-            document.getElementById("down").style.borderRadius = "15px";
-            document.getElementById("down").style.boxShadow = "5px 5px 2px";
-            document.getElementById("down").style.position = "absolute";
-            document.getElementById("down").style.top = "110px";
-            document.getElementById("down").style.left = "165px";
+function checkField() {
+    var x = document.getElementById("username").value;
+    
+    if (x === "") {
+        alert("Insert name")
+        return false;
+    } else {
+        return true;
+    }
+    if (x == true) {
+        window.location.href = "index.html";
+    }
+}
 
-            //styling Left
-            document.getElementById("left").style.backgroundColor = "#731094";
-            document.getElementById("left").style.width = "150px";
-            document.getElementById("left").style.height = "45px";
-            document.getElementById("left").style.textAlign = "center";
-            document.getElementById("left").style.fontWeight = "bold";
-            document.getElementById("left").style.borderRadius = "15px";
-            document.getElementById("left").style.boxShadow = "5px 5px 2px";
-            document.getElementById("left").style.position = "absolute";
-            document.getElementById("left").style.top = "60px";
-            document.getElementById("left").style.left = "10px";
+var socket = io();
+document.getElementById("up").addEventListener("click", emitMove);
+document.getElementById("down").addEventListener("click", emitMove);
+document.getElementById("left").addEventListener("click", emitMove);
+document.getElementById("right").addEventListener("click", emitMove);
+document.getElementById("action").addEventListener("click", emitAction);
 
-            //styling Right
-            document.getElementById("right").style.backgroundColor = "#731094";
-            document.getElementById("right").style.width = "150px";
-            document.getElementById("right").style.height = "45px";
-            document.getElementById("right").style.textAlign = "center";
-            document.getElementById("right").style.fontWeight = "bold";
-            document.getElementById("right").style.borderRadius = "15px";
-            document.getElementById("right").style.boxShadow = "5px 5px 2px";
-            document.getElementById("right").style.position = "absolute";
-            document.getElementById("right").style.top = "60px";
-            document.getElementById("right").style.left = "320px";
+function emitMove() {
+    socket.emit("move", this.id);
+}
 
-            //styling Action
-            document.getElementById("action").style.backgroundColor = "red";
-            document.getElementById("action").style.width = "150px";
-            document.getElementById("action").style.height = "45px";
-            document.getElementById("action").style.textAlign = "center";
-            document.getElementById("action").style.fontWeight = "bold";
-            document.getElementById("action").style.borderRadius = "15px";
-            document.getElementById("action").style.boxShadow = "5px 5px 2px";
-            document.getElementById("action").style.position = "absolute";
-            document.getElementById("action").style.top = "60px";
-            document.getElementById("action").style.left = "165px";
-        </script>
-    </body>
+function emitAction() {
+    socket.emit("move", this.id);
+}
 
+/*action deplete on move*/
+
+function modify_qty(val) {
+    var qty = document.getElementById('qty').value;
+    var new_qty = parseInt(qty, 10) + val;
+
+
+    if (new_qty < 3) {
+        document.getElementById("action").disabled = true;
+    }
+
+    if (new_qty <= 0) {
+        new_qty = 0
+        document.getElementById("action").disabled = true;
+        document.getElementById("up").disabled = true;
+        document.getElementById("down").disabled = true;
+        document.getElementById("left").disabled = true;
+        document.getElementById("right").disabled = true;
+
+    }
+
+
+
+    document.getElementById('qty').value = new_qty;
+    turnOver();
+    return turnOver();
+}
+
+function turnOver() {
+    ;
+    if (new_qty === 0) {
+        socket.emit("endturn", this.id)
+    }
+    return new_qty;
+
+}
+
+</script>
 </html>
+
 
