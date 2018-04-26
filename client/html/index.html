@@ -6,42 +6,67 @@
 </head>
 <body>
 
+<div id="startDiv">
 
-<center>
-<div id="chooseName">
-    Gebruikersnaam:<br>
-   <input name="GebruikersNaam" id="username" type="text" value=""><br>
-   <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
-<button onclick="hideButton()">chooseColor</button>
-</div>
-</center>
+    <center>
+        <div id="chooseName">
+            Gebruikersnaam:<br>
+            <input name="GebruikersNaam" id="username" type="text" value=""><br>
+            <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
+        <button onclick="hideButton()">chooseColor</button>
+        </div>
+    </center>
 
 
-<div id="colorPicker">
-    <h3> Pick  a Color </h3>
-    <div class="ColorPickBox" id="ColorBlue"> Blue </div> 
-    <div class="ColorPickBox" id="ColorRed"> Red </div>
-    <div class="ColorPickBox" id="ColorGreen"> Green </div>
-    <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
-    <div class="ColorPickBox" id="ColorOrange"> Orange </div>
-    <div class="ColorPickBox" id="ColorPink"> Pink </div>
-    <div class="ColorPickBox" id="ColorBrown"> Brown </div>
-    <div class="ColorPickBox" id="ColorGray"> Gray </div>
-    <div class="ColorPickBox" id="ColorPurple"> Purple </div>
-</div>
+    <div id="colorPicker">
+        <h3> Pick  a Color </h3>
+        <div class="ColorPickBox" id="ColorBlue"> Blue </div> 
+        <div class="ColorPickBox" id="ColorRed"> Red </div>
+        <div class="ColorPickBox" id="ColorGreen"> Green </div>
+        <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
+        <div class="ColorPickBox" id="ColorOrange"> Orange </div>
+        <div class="ColorPickBox" id="ColorPink"> Pink </div>
+        <div class="ColorPickBox" id="ColorBrown"> Brown </div>
+        <div class="ColorPickBox" id="ColorGray"> Gray </div>
+        <div class="ColorPickBox" id="ColorPurple"> Purple </div>
+    </div>
 
-<div id="buttonController">
-<button id="up" onclick="modify_qty(-1)">Up</button>
-<button id="down" onclick="modify_qty(-1)">Down</button>
-<button id="left" onclick="modify_qty(-1)">Left</button>
-<button id="right" onclick="modify_qty(-1)">Right</button>
-<button id="action" onclick="modify_qty(-3)">Action</button>
 </div>
 
-<div class="box" id="actionCounter">    
-<label for="Action points"><abbr title="Action points">Action points</abbr></label>
-<input id="qty" class="input" value="10" disabled="true" />
+<div id="gameDiv" style="display:none;">
+    <p id="topBox">
+        prototype webapp controlsBox
+    </p>
+    
+    <p id="controlsBox">
+        <button id="up" onclick="modify_qty(-1)">Up</button>
+        <button id="down" onclick="modify_qty(-1)">Down</button>
+        <button id="left" onclick="modify_qty(-1)"></button>
+        <button id="right" onclick="modify_qty(-1)">Right</button>
+        <button id="action" onclick="modify_qty(-3)">Action</button>
+        <button id="inventoryScreen"> Inventory</button>
+    </p>
+
+    <div class="box" id="actionCounter">
+        <label for="Action points">
+            <abbr title="Action points">Action points</abbr>
+        </label>
+        <input id="qty" class="input" value="10" disabled="true" />
+    </div>
 </div>
+
+<div id="inventoryDiv" style="display:none;">
+
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <button id="main"> Main </button>
+
+        <div id="inventory"></div>
+
+
+    </div>
 
 </body>
 
@@ -55,11 +80,11 @@
 
     
 function hideButton() {
-    var ButtonC = document.getElementById("buttonController");
+    var gameDiv = document.getElementById("gameDiv");
     var ActionC = document.getElementById("actionCounter");
     var colorP = document.getElementById("colorPicker");
     var chooseName = document.getElementById("chooseName");
-    ButtonC.style.display = "inline-block";
+    gameDiv.style.display = "inline-block";
     ActionC.style.display = "inline-block";
     colorP.style.display = "none";
     chooseName.style.display = "none";
@@ -85,6 +110,9 @@ document.getElementById("down").addEventListener("click", emitMove);
 document.getElementById("left").addEventListener("click", emitMove);
 document.getElementById("right").addEventListener("click", emitMove);
 document.getElementById("action").addEventListener("click", emitAction);
+//actions
+document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+document.getElementById("main").addEventListener("click", myMain);
 
 function emitMove() {
     socket.emit("move", this.id);
@@ -129,6 +157,17 @@ function turnOver() {
     }
     return new_qty;
 
+}
+
+
+function myInventory() {
+    gameDiv.style.display = 'none';
+    inventoryDiv.style.display = 'inline-block';
+}
+
+function myMain() {
+    inventoryDiv.style.display = 'none';
+    gameDiv.style.display = 'inline-block';
 }
 
 </script>

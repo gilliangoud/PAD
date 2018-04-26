@@ -1,3 +1,15 @@
+/*start pagina*/
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Boxen */
@@ -15,8 +27,7 @@
     background-color: grey;
 }
 
-#buttonController{
-    background-color: grey;
+#gameDiv{
     width: 99%;
     height: 75%;
     position: absolute;
@@ -30,7 +41,7 @@
     display: none;
 }
 
-.ColorPickBox {
+div.ColorPickBox {
     position: absolute;
     background-color: grey;
     margin: 5px;
@@ -44,7 +55,7 @@
     display: inline-block;
 }
 
-.ColorPickBox:hover {
+div.ColorPickBox:hover {
     border: 2px solid black;
 }
 
@@ -191,11 +202,6 @@ body {
 }
 
 
-body {
-    
-
-}
-
 #backGround img {
     width: 100%;
     height: 100vh;
@@ -248,7 +254,6 @@ body {
     width: 20%;
     height: 12%;
     -webkit-transition: all .2s;
-    background-image: url(C:\Users\Siebe\OneDrive\School\PAD\client\content\arrowUp.png);
     line-height: 50px;
     text-align: center;
     font-weight: bold;
@@ -283,17 +288,11 @@ body {
 
 
 #right {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
+    width: 25%;
+    height: 26%;
+    background: url(../content/arrowRight.png) no-repeat;
+    background-color: black;
+    background-size: 100%;
     position: absolute;
     top: 35%;
     left: 70%;
@@ -302,18 +301,15 @@ body {
 
 
 #left {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
+    width: 25%;
+    height: 30%;
+    background: url(../content/left.png) no-repeat;
+    background-position-x: 45%;
+    background-position-y: 50%;
+    background-color:black;
     position: absolute;
+    
+    border-radius: 50%;
     top: 35%;
     left: 10%;
 }
