@@ -25,7 +25,7 @@ Player = class Player {
             }
             console.log("Player moved " + direction);
             
-            global.board.sendLocation(this.x, this.y);
+          //  global.board.sendLocation(this.x, this.y);
             game.actionHandler();
         }
     }
