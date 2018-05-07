@@ -1,88 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
+
 <body>
-
-<<<<<<< HEAD
-<div id="startDiv">
-
-    <center>
-        <div id="chooseName">
-            Gebruikersnaam:<br>
-            <input name="GebruikersNaam" id="username" type="text" value=""><br>
-            <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
-        <button onclick="hideButton()">chooseColor</button>
-        </div>
-    </center>
-
-
-    <div id="colorPicker">
-        <h3> Pick  a Color </h3>
-        <div class="ColorPickBox" id="ColorBlue"> Blue </div> 
-        <div class="ColorPickBox" id="ColorRed"> Red </div>
-        <div class="ColorPickBox" id="ColorGreen"> Green </div>
-        <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
-        <div class="ColorPickBox" id="ColorOrange"> Orange </div>
-        <div class="ColorPickBox" id="ColorPink"> Pink </div>
-        <div class="ColorPickBox" id="ColorBrown"> Brown </div>
-        <div class="ColorPickBox" id="ColorGray"> Gray </div>
-        <div class="ColorPickBox" id="ColorPurple"> Purple </div>
-    </div>
-
-</div>
-
-<div id="gameDiv" style="display:none;">
-    <p id="topBox">
-        prototype webapp controlsBox
-    </p>
-    
-    <p id="controlsBox">
-        <button id="up" onclick="modify_qty(-1)">Up</button>
-        <button id="down" onclick="modify_qty(-1)">Down</button>
-        <button id="left" onclick="modify_qty(-1)"></button>
-        <button id="right" onclick="modify_qty(-1)">Right</button>
-        <button id="action" onclick="modify_qty(-3)">Action</button>
-        <button id="inventoryScreen"> Inventory</button>
-    </p>
-
-    <div class="box" id="actionCounter">
-        <label for="Action points">
-            <abbr title="Action points">Action points</abbr>
-        </label>
-        <input id="qty" class="input" value="10" disabled="true" />
-    </div>
-</div>
-
-<div id="inventoryDiv" style="display:none;">
-
-        <p id="topBox">
-            prototype webapp Inventory
-        </p>
-
-        <button id="main"> Main </button>
-
-        <div id="inventory"></div>
-
-
-    </div>
-=======
+    <!--Start-->
     <div id="startDiv">
-
         <center>
             <div id="chooseName">
-                Gebruikersnaam:<br>
-                <input name="GebruikersNaam" id="username" type="text" value=""><br>
+                Gebruikersnaam:
+                <br>
+                <input name="GebruikersNaam" id="username" type="text" value="">
+                <br>
                 <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
                 <button onclick="hideButton()">chooseColor</button>
             </div>
         </center>
 
 
-        <div id="colorPicker" ">
-            <h3> Pick  a Color </h3>
+        <div id="colorPicker">
+            <h2 id="textColor"> Pick a Color </h2>
             <div class="ColorPickBox" id="ColorBlue"> Blue </div>
             <div class="ColorPickBox" id="ColorRed"> Red </div>
             <div class="ColorPickBox" id="ColorGreen"> Green </div>
@@ -93,152 +33,141 @@
             <div class="ColorPickBox" id="ColorGray"> Gray </div>
             <div class="ColorPickBox" id="ColorPurple"> Purple </div>
         </div>
+
     </div>
 
+    <!--Control\ingame-->
     <div id="gameDiv" style="display:none;">
-
         <p id="topBox">
-            prototype webapp controls
-            <button id="inventoryButton"> Inventory</button>
+            prototype webapp controlsBox
         </p>
 
         <p id="controlsBox">
             <button id="up" onclick="modify_qty(-1)">Up</button>
             <button id="down" onclick="modify_qty(-1)">Down</button>
             <button id="left" onclick="modify_qty(-1)"></button>
-            <button id="right" onclick="modify_qty(-1)"></button>
+            <button id="right" onclick="modify_qty(-1)">Right</button>
             <button id="action" onclick="modify_qty(-3)">Action</button>
-            
+            <button id="inventoryScreen"> Inventory</button>
         </p>
-
-
-
         <div class="box" id="actionCounter">
-            <label for="Action points"><abbr title="Action points">Action points</abbr></label>
+            <label for="Action points">
+                <abbr title="Action points">Action points</abbr>
+            </label>
             <input id="qty" class="input" value="10" disabled="true" />
         </div>
-
     </div>
-
-
+    <!--Inventory-->
     <div id="inventoryDiv" style="display:none;">
-
         <p id="topBox">
             prototype webapp Inventory
         </p>
-
         <button id="main"> Main </button>
-
         <div id="inventory"></div>
 
-
     </div>
-
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
-
 </body>
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
-    <script src="../js/inventory.js"></script>
+<script src="../js/inventory.js"></script>
 
 
 
 <script>
 
-    
-function hideButton() {
-    var gameDiv = document.getElementById("gameDiv");
-    var ActionC = document.getElementById("actionCounter");
-    var colorP = document.getElementById("colorPicker");
-    var chooseName = document.getElementById("chooseName");
-    gameDiv.style.display = "inline-block";
-    ActionC.style.display = "inline-block";
-    colorP.style.display = "none";
-    chooseName.style.display = "none";
-}
 
-function checkField() {
-    var x = document.getElementById("username").value;
-    
-    if (x === "") {
-        alert("Insert name")
-        return false;
-    } else {
-        return true;
-    }
-    if (x == true) {
-        window.location.href = "index.html";
-    }
-}
-
-var socket = io();
-document.getElementById("up").addEventListener("click", emitMove);
-document.getElementById("down").addEventListener("click", emitMove);
-document.getElementById("left").addEventListener("click", emitMove);
-document.getElementById("right").addEventListener("click", emitMove);
-document.getElementById("action").addEventListener("click", emitAction);
-//actions
-document.getElementById("inventoryScreen").addEventListener("click", myInventory);
-document.getElementById("main").addEventListener("click", myMain);
-
-function emitMove() {
-    socket.emit("move", this.id);
-}
-
-function emitAction() {
-    socket.emit("move", this.id);
-}
-
-/*action deplete on move*/
-
-function modify_qty(val) {
-    var qty = document.getElementById('qty').value;
-    var new_qty = parseInt(qty, 10) + val;
-
-
-    if (new_qty < 3) {
-        document.getElementById("action").disabled = true;
+    function hideButton() {
+        var gameDiv = document.getElementById("gameDiv");
+        var ActionC = document.getElementById("actionCounter");
+        var colorP = document.getElementById("colorPicker");
+        var chooseName = document.getElementById("chooseName");
+        gameDiv.style.display = "inline-block";
+        ActionC.style.display = "inline-block";
+        colorP.style.display = "none";
+        chooseName.style.display = "none";
     }
 
-    if (new_qty <= 0) {
-        new_qty = 0
-        document.getElementById("action").disabled = true;
-        document.getElementById("up").disabled = true;
-        document.getElementById("down").disabled = true;
-        document.getElementById("left").disabled = true;
-        document.getElementById("right").disabled = true;
+    function checkField() {
+        var x = document.getElementById("username").value;
+
+        if (x === "") {
+            alert("Insert name")
+            return false;
+        } else {
+            return true;
+        }
+        if (x == true) {
+            window.location.href = "index.html";
+        }
+    }
+
+    var socket = io();
+    document.getElementById("up").addEventListener("click", emitMove);
+    document.getElementById("down").addEventListener("click", emitMove);
+    document.getElementById("left").addEventListener("click", emitMove);
+    document.getElementById("right").addEventListener("click", emitMove);
+    document.getElementById("action").addEventListener("click", emitAction);
+    //actions
+    document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+    document.getElementById("main").addEventListener("click", myMain);
+
+    function emitMove() {
+        socket.emit("move", this.id);
+    }
+
+    function emitAction() {
+        socket.emit("move", this.id);
+    }
+
+    /*action deplete on move*/
+
+    function modify_qty(val) {
+        var qty = document.getElementById('qty').value;
+        var new_qty = parseInt(qty, 10) + val;
+
+
+        if (new_qty < 3) {
+            document.getElementById("action").disabled = true;
+        }
+
+        if (new_qty <= 0) {
+            new_qty = 0
+            document.getElementById("action").disabled = true;
+            document.getElementById("up").disabled = true;
+            document.getElementById("down").disabled = true;
+            document.getElementById("left").disabled = true;
+            document.getElementById("right").disabled = true;
+
+        }
+
+
+
+        document.getElementById('qty').value = new_qty;
+        turnOver();
+        return turnOver();
+    }
+
+    function turnOver() {
+        ;
+        if (new_qty === 0) {
+            socket.emit("endturn", this.id)
+        }
+        return new_qty;
 
     }
 
 
-
-    document.getElementById('qty').value = new_qty;
-    turnOver();
-    return turnOver();
-}
-
-function turnOver() {
-    ;
-    if (new_qty === 0) {
-        socket.emit("endturn", this.id)
+    function myInventory() {
+        gameDiv.style.display = 'none';
+        inventoryDiv.style.display = 'inline-block';
     }
-    return new_qty;
 
-}
-
-
-function myInventory() {
-    gameDiv.style.display = 'none';
-    inventoryDiv.style.display = 'inline-block';
-}
-
-function myMain() {
-    inventoryDiv.style.display = 'none';
-    gameDiv.style.display = 'inline-block';
-}
+    function myMain() {
+        inventoryDiv.style.display = 'none';
+        gameDiv.style.display = 'inline-block';
+    }
 
 </script>
+
 </html>
-
-

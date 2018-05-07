@@ -1,98 +1,137 @@
-<<<<<<< HEAD
-/*start pagina*/
 
-
-
-
-
-
-
-
-
-
-
-=======
-/* gameDiv */
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
-
-#gameDiv {
-    width: 100%;
-    height: 100%;
+body {
+    width: auto;
+    font-family: sans-serif;
+    margin: 0;
+    background-image: url("https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?cs=srgb&dl=abandoned-ancient-antique-235986.jpg&fm=jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
 }
 
-#actionCounter {
-    width:25% ;
-    height: 12.5%;
+
+/*start pagina*/
+#startDiv{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    left:0%;
+    nav-up:0%;
+}
+
+#chooseName {
+    width: 100%;
+    height: 20%;
     position: absolute;
-    top: 5%;
-    left: 70%;
+    left: 0%;
+    top: 10%;
+}
+
+#colorPicker {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    left: 0%;
+    top: 40%;
+}
+
+#textColor {
+    width: auto;
+    height: auto;
+    color: rgb(92, 43, 2);
+    font-family: 'Segoe Print';
+    position: absolute;
+    left: 30%;
+}
+
+/*collor buttons*/
+
+#ColorBlue {
+    background: rgb(0,0,255);
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+
+#ColorRed {
+    background: rgb(255,0,0);
+    position: absolute;
+    top: 15%;
+    left: 38%;
+}
+
+#ColorGreen {
+    background: #00FF00;
+    position: absolute;
+    top: 15%;
+    left: 71%;
+}
+
+#ColorYellow {
+    background: Yellow;
+    position: absolute;
+    top: 42%;
+    left: 5%;
+}
+
+#ColorOrange {
+    background: Orange;
+    position: absolute;
+    top: 42%;
+    left: 38%;
+}
+
+#ColorPink{
+    background: Pink;
+    position: absolute;
+    top: 42%;
+    left: 71%;
+}
+
+#ColorBrown {
+    background: Brown;
+    position: absolute;
+    top: 67%;
+    left: 5%;
+}
+
+#ColorGray {
+    background: Gray;
+    position: absolute;
+    top: 67%;
+    left: 38%;
+}
+
+#ColorPurple {
+    background: Purple;
+    position: absolute;
+    top: 67%;
+    left: 71%;
+}
+
+/* Boxen */
+#topBox {
+    position: block;
+    margin: auto;
+    size: 50%;
+    background-color: grey;
+}
+
+#gameDiv{
+    width: 99%;
+    height: 75%;
+    position: absolute;
+    top: 20%;
+    left: 5px;
     display: none;
 }
 
-#inventoryButton {
-    width: 25%;
-    height: 15%;
-    background-color: grey;
-    position: absolute;
-    left: 5%;
-    top: 5%;
+#actionCounter{
+    top:20%;
+    display: none;
 }
 
-<<<<<<< HEAD
-#gameDiv{
-=======
-#controlsBox {
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
-    width: 99%;
-    height: 70%;
-    position: absolute;
-    top: 25%;
-    left: 0%;
-    background-color: grey;
-}
-
-#inventoryButton {
-    width: 40%;
-    height: 25%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 55%;
-    left: 20%;
-}
-
-<<<<<<< HEAD
 div.ColorPickBox {
-=======
-#topBox {
-    position: absolute;
-    margin: auto;
-    width: 70%;
-    height: 25%;
-    background-color: grey;
-}
-
-
-
-
-#chooseName {
-    font-size: 20px;
-    color: white;
-    display: block;
-    margin: auto;
-}
-
-
-
-.ColorPickBox {
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
     position: absolute;
     background-color: grey;
     margin: 5px;
@@ -172,50 +211,6 @@ div.ColorPickBox:hover {
 }
 
 
-#ColorBlue {
-    background: rgb(0,0,255);
-    left: 0%;
-}
-
-#ColorRed {
-    background: rgb(255,0,0);
-    left: 11%;
-}
-
-#ColorGreen {
-    background: #00FF00;
-    left: 22%;
-}
-
-#ColorYellow {
-    background: Yellow;
-    left: 33%;
-}
-
-#ColorOrange {
-    background: Orange;
-    left: 44%;
-}
-
-#ColorPink{
-    background: Pink;
-    left: 55%;
-}
-
-#ColorBrown {
-    background: Brown;
-    left: 66%;
-}
-
-#ColorGray {
-    background: Gray;
-    left: 77%;
-}
-
-#ColorPurple {
-    background: Purple;
-    left: 88%;
-}
 
 div.result {
     width:50px;
@@ -226,19 +221,10 @@ div.result {
 
 
 
-#colorPicker {
-    margin: 10px;
-    background-color: grey;
-}
 
-body {
-    font-family: sans-serif;
-    margin: 0;
-    background-image: url("https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?cs=srgb&dl=abandoned-ancient-antique-235986.jpg&fm=jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: #cccccc;
-}
+
+
+
 
 .h1 {
     text-align: center;
@@ -248,9 +234,7 @@ body {
     left: 170px;
 }
 
-.h2 {
-    color: purple;
-}
+
 
 
 #backGround img {
@@ -294,6 +278,12 @@ body {
     left: 5%;
 }
 
+
+
+
+
+
+
 /* controls*/
 #up {
     width: 20%;
@@ -333,29 +323,19 @@ body {
 
 
 #right {
-<<<<<<< HEAD
     width: 25%;
     height: 26%;
     background: url(../content/arrowRight.png) no-repeat;
     background-color: black;
     background-size: 100%;
-=======
-    width: 30%;
-    height: 20%;
-    background: url("../content/right.png") no-repeat;
-    background-color: black;
-    background-size: 90%;
-    background-position-x: 50%;
-    background-position-y: 50%;
-    border-radius: 50%;
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
     position: absolute;
-    top: 25%;
-    left: 68%;
+    top: 35%;
+    left: 70%;
 }
 
+
+
 #left {
-<<<<<<< HEAD
     width: 25%;
     height: 30%;
     background: url(../content/left.png) no-repeat;
@@ -367,19 +347,6 @@ body {
     border-radius: 50%;
     top: 35%;
     left: 10%;
-=======
-    width: 30%;
-    height: 20%;
-    background: url("../content/left.png") no-repeat;
-    background-color: black;
-    background-size:90%;
-    background-position-x: 50%;
-    background-position-y:50%;
-    border-radius: 50%;
-    position: absolute;
-    top:25%;
-    left: 8%;
->>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
 }
 
 #action {
