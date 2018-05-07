@@ -1,12 +1,31 @@
+/*algemeen*/
 
 body {
     width: auto;
+    height: 100%;
     font-family: sans-serif;
     margin: 0;
-    background-image: url("https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?cs=srgb&dl=abandoned-ancient-antique-235986.jpg&fm=jpg");
+    background-color: black;
+    background-image: url("../content/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #cccccc;
+}
+
+#backGround img {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.6;
+}
+
+.input {
+    font-size: 2.4em;
+    background-color: transparent;
+    text-align: center;
+    border-width: 0;
+    width: 100%;
+    margin: 0 0 .1em 0;
+    color: #fff;
 }
 
 
@@ -16,32 +35,106 @@ body {
     height: 100%;
     position:absolute;
     left:0%;
-    nav-up:0%;
+    top:0%;
 }
+
+/* gebruikersnaam kiezen */ 
 
 #chooseName {
     width: 100%;
     height: 20%;
     position: absolute;
     left: 0%;
-    top: 10%;
+    top: 0%;
 }
+
+#login {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(2, 20, 70);
+    border: 5px solid rgb(104, 9, 9);
+    border-radius: 30%;
+    position: relative;
+    top: 15%;
+    padding: 10px;
+    color: rgb(112, 3, 3);
+    text-align: center;
+    font-family: 'Segoe Print';
+    font-size: 120%;
+    font-weight: bolder;
+}
+
+.userName {
+    text-align: left;
+    font-family: Tahoma;
+    position: absolute;
+    top: 100px;
+    left: 25%;
+    font-weight: bold;
+    font-size: 50px;
+    color: #c60e0e;
+}
+
+#button{
+    width: 50%;
+    margin: auto;
+    background-color: rgb(16, 48, 1);
+    border: 5px solid rgb(8, 8, 8);
+    border-radius: 30%;
+    padding: 5px;
+    color: rgb(112, 3, 3);
+    position: relative;
+    top:10%;
+}
+
+#chooseColor{
+    width: 50%;
+    margin: auto;
+    background-color: rgb(2, 66, 240);
+    border: 5px solid white;
+    border-radius: 30%;
+    padding: 5px;
+    color: black;
+}
+
+/* color kiezen */
 
 #colorPicker {
-    width: 100%;
-    height: 60%;
+    width: 90%;
+    height: 65%;
     position: absolute;
-    left: 0%;
-    top: 40%;
+    border: 5px dotted brown;
+    left: 5%;
+    top: 30%;
 }
 
-#textColor {
-    width: auto;
-    height: auto;
-    color: rgb(92, 43, 2);
-    font-family: 'Segoe Print';
+div.ColorPickBox {
     position: absolute;
-    left: 30%;
+    background-color: grey;
+    margin: 5px;
+    width: 80px;
+    height: 80px; 
+    border: 2px solid white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 100px;
+    display: inline-block;
+}
+
+div.ColorPickBox:hover {
+    border: 2px solid black;
+}
+#textColor {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(2, 20, 70); 
+    border: 5px solid rgb(104, 9, 9);
+    border-radius: 50%;
+    padding: 10px;
+    color: rgb(112, 3, 3);
+    text-align: center;
+    font-family: 'Segoe Print';
 }
 
 /*collor buttons*/
@@ -49,86 +142,64 @@ body {
 #ColorBlue {
     background: rgb(0,0,255);
     position: absolute;
-    top: 15%;
+    top: 19%;
     left: 5%;
 }
 
 #ColorRed {
     background: rgb(255,0,0);
     position: absolute;
-    top: 15%;
+    top: 19%;
     left: 38%;
 }
 
 #ColorGreen {
     background: #00FF00;
     position: absolute;
-    top: 15%;
+    top: 19%;
     left: 71%;
 }
 
 #ColorYellow {
     background: Yellow;
     position: absolute;
-    top: 42%;
+    top: 46%;
     left: 5%;
 }
 
 #ColorOrange {
     background: Orange;
     position: absolute;
-    top: 42%;
+    top: 46%;
     left: 38%;
 }
 
 #ColorPink{
     background: Pink;
     position: absolute;
-    top: 42%;
+    top: 46%;
     left: 71%;
 }
 
 #ColorBrown {
     background: Brown;
     position: absolute;
-    top: 67%;
+    top: 71%;
     left: 5%;
 }
 
 #ColorGray {
     background: Gray;
     position: absolute;
-    top: 67%;
+    top: 71%;
     left: 38%;
 }
 
 #ColorPurple {
     background: Purple;
     position: absolute;
-    top: 67%;
+    top: 71%;
     left: 71%;
-}
-
-/* Boxen */
-#topBox {
-    position: block;
-    margin: auto;
-    size: 50%;
-    background-color: grey;
-}
-
-#gameDiv{
-    width: 99%;
-    height: 75%;
-    position: absolute;
-    top: 20%;
-    left: 5px;
-    display: none;
-}
-
-#actionCounter{
-    top:20%;
-    display: none;
 }
 
 div.ColorPickBox {
@@ -149,15 +220,54 @@ div.ColorPickBox:hover {
     border: 2px solid black;
 }
 
-.userName {
-    text-align: left;
-    font-family: Tahoma;
+/*controls/ingame */
+#gameDiv{
+    width: 90%;
+    height: 100%;
     position: absolute;
-    top: 100px;
-    left: 25%;
+    top: 0%;
+    left: 0%;
+}
+
+#topBox {
+    position: block;
+    margin: auto;
+    size: 50%;
+    background-color: grey;
+}
+
+#inventoryScreen {
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
     font-weight: bold;
-    font-size: 50px;
-    color: #c60e0e;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+#controlsBox{
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    border: 5px dotted brown;
+
+}
+
+#actionCounter{
+    width: 25%;
+    height: 10%;
+    position: absolute;
+    top: 10%;
+    left: 70%;
 }
 
 .box {
@@ -178,21 +288,165 @@ div.ColorPickBox:hover {
     box-shadow: 0px 0px 12px 0px #000;
 }
 
-.input {
-    font-size: 2.4em;
-    background-color: transparent;
-    text-align: center;
-    border-width: 0;
-    width: 100%;
-    margin: 0 0 .1em 0;
-    color: #fff;
+/* controls*/
+
+#left {
+    width: 25%;
+    height: 20%;
+    background: url(../content/left.png);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 40%;
+    
 }
 
-#Login {
-    margin: auto;
-    width: 70%;
-    margin-top: 40%;
+#right {
+    width: 25%;
+    height: 20%;
+    background: url(../content/right.png);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 70%;
 }
+
+
+#up {
+    width: 25%;
+    height: 20%;
+    background: url(../content/up.png);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 37.5%;
+}
+
+
+
+#down {
+    width: 25%;
+    height: 20%;
+    background: url(../content/down.png);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: cover;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    top: 70%;
+    left: 37.5%;
+}
+
+
+
+#action {
+    width: 30%;
+    height: 20%;
+    background-color: black;
+    border: 5px solid black;
+    color: red;
+    text-align: center;
+    font-family: 'Segoe Print';
+    font-size: 150%;
+    font-weight: bolder;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+/* Inventory */
+
+#inventoryDiv{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0%;
+    top: 0%;
+}
+
+#middleBox{
+    width: 90%;
+    height: 15%;
+    position: absolute;
+    left: 5%;
+    top: 2%; 
+}
+
+
+
+#main {
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+#bottomBox{
+    width: 90%;
+    height: 70%;
+    border: 5px dotted brown;
+    position: absolute;
+    left: 5%;
+    top: 20%;
+}
+
+/*inventory boxen*/
+
+#inventoryBox1{
+    width: 35%;
+    height: 25%;
+    border: 5px dotted brown;
+    position: absolute;
+    background-color: grey;
+    left: 5%;
+    top: 5%;
+}
+
+#inventoryBox2{
+    width: 35%;
+    height: 25%;
+    border: 5px dotted brown;
+    position: absolute;
+    background-color: grey;
+    left: 30%;
+    top: 35%;
+}
+
+#inventoryBox3{
+    width: 35%;
+    height: 25%;
+    border: 5px dotted brown;
+    position: absolute;
+    background-color: grey;
+    left: 55%;
+    top: 65%;
+}
+
+/* geen idee waarvoor dacht dat iets met colorpicker was */
 
 #ddd{
     display: block;
@@ -203,166 +457,8 @@ div.ColorPickBox:hover {
     margin-bottom: 200px;
 }
 
-#button{
-    display:block;
-    margin: auto;
-    margin-top: 10% ;
-    width: 100%;
-}
-
-
-
 div.result {
     width:50px;
     height: 50px;
     position: center;
 }
-
-
-
-
-
-
-
-
-
-.h1 {
-    text-align: center;
-    font-family: Tahoma;
-    position: absolute;
-    top: 30%;
-    left: 170px;
-}
-
-
-
-
-#backGround img {
-    width: 100%;
-    height: 100vh;
-    opacity: 0.6;
-}
-
-/* niet_actie/invetory */
-#inventoryScreen {
-    width: 22%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-}
-
-#main {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-}
-
-
-
-
-
-
-
-/* controls*/
-#up {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 15%;
-    left: 40%;
-}
-
-
-
-#down {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 55%;
-    left: 40%;
-}
-
-
-
-#right {
-    width: 25%;
-    height: 26%;
-    background: url(../content/arrowRight.png) no-repeat;
-    background-color: black;
-    background-size: 100%;
-    position: absolute;
-    top: 35%;
-    left: 70%;
-}
-
-
-
-#left {
-    width: 25%;
-    height: 30%;
-    background: url(../content/left.png) no-repeat;
-    background-position-x: 45%;
-    background-position-y: 50%;
-    background-color:black;
-    position: absolute;
-    
-    border-radius: 50%;
-    top: 35%;
-    left: 10%;
-}
-
-#action {
-    width: 20%;
-    height: 12%;
-    -webkit-transition: all .2s;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 35%;
-    left: 40%;
-}
-

@@ -11,12 +11,15 @@
     <div id="startDiv">
         <center>
             <div id="chooseName">
-                Gebruikersnaam:
+                <div id="login">
+                    Gebruikersnaam:
+                    <input name="GebruikersNaam" id="username" type="text" value="">
+                </div>
                 <br>
-                <input name="GebruikersNaam" id="username" type="text" value="">
-                <br>
-                <input class="button" id="button" type="submit" value="Start game" onclick="return checkField()">
-                <button onclick="hideButton()">chooseColor</button>
+                <div>
+                    <br>
+                    <button id="chooseColor" onclick="hideButton()">choose Color</button>
+                </div>
             </div>
         </center>
 
@@ -38,32 +41,52 @@
 
     <!--Control\ingame-->
     <div id="gameDiv" style="display:none;">
+
         <p id="topBox">
             prototype webapp controlsBox
         </p>
 
-        <p id="controlsBox">
-            <button id="up" onclick="modify_qty(-1)">Up</button>
-            <button id="down" onclick="modify_qty(-1)">Down</button>
-            <button id="left" onclick="modify_qty(-1)"></button>
-            <button id="right" onclick="modify_qty(-1)">Right</button>
-            <button id="action" onclick="modify_qty(-3)">Action</button>
-            <button id="inventoryScreen"> Inventory</button>
-        </p>
+        <button id="inventoryScreen"> Inventory</button>
+
         <div class="box" id="actionCounter">
             <label for="Action points">
                 <abbr title="Action points">Action points</abbr>
             </label>
             <input id="qty" class="input" value="10" disabled="true" />
         </div>
+
+        <p id="controlsBox">
+
+            <button id="up" onclick="modify_qty(-1)"> </button>
+            <button id="down" onclick="modify_qty(-1)"> </button>
+            <button id="left" onclick="modify_qty(-1)"> </button>
+            <button id="right" onclick="modify_qty(-1)"> </button>
+            <button id="action" onclick="modify_qty(-3)">Action</button>
+
+        </p>
     </div>
+
+
     <!--Inventory-->
     <div id="inventoryDiv" style="display:none;">
+
         <p id="topBox">
             prototype webapp Inventory
         </p>
-        <button id="main"> Main </button>
-        <div id="inventory"></div>
+
+        <p id="middleBox">
+
+        <button id="main" onclick="myMain()"> Main </button>
+                    
+        </p>
+
+        <p id="bottomBox">
+
+            <button id="inventoryBox1"> Item </buttonp>
+            <button id="inventoryBox2"> Item </buttonp>
+            <button id="inventoryBox3"> Item </button>
+
+        </p>
 
     </div>
 </body>
