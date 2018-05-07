@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*start pagina*/
 
 
@@ -10,9 +11,77 @@
 
 
 
+=======
+/* gameDiv */
+>>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
+
+#gameDiv {
+    width: 100%;
+    height: 100%;
+}
+
+#actionCounter {
+    width:25% ;
+    height: 12.5%;
+    position: absolute;
+    top: 5%;
+    left: 70%;
+    display: none;
+}
+
+#inventoryButton {
+    width: 25%;
+    height: 15%;
+    background-color: grey;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+<<<<<<< HEAD
+#gameDiv{
+=======
+#controlsBox {
+>>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
+    width: 99%;
+    height: 70%;
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    background-color: grey;
+}
+
+#inventoryButton {
+    width: 40%;
+    height: 25%;
+    -webkit-transition: all .2s;
+    background: #000;
+    line-height: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 55%;
+    left: 20%;
+}
+
+<<<<<<< HEAD
+div.ColorPickBox {
+=======
+#topBox {
+    position: absolute;
+    margin: auto;
+    width: 70%;
+    height: 25%;
+    background-color: grey;
+}
 
 
-/* Boxen */
+
+
 #chooseName {
     font-size: 20px;
     color: white;
@@ -20,28 +89,10 @@
     margin: auto;
 }
 
-#topBox {
-    position: block;
-    margin: auto;
-    size: 50%;
-    background-color: grey;
-}
 
-#gameDiv{
-    width: 99%;
-    height: 75%;
-    position: absolute;
-    top: 20%;
-    left: 5px;
-    display: none;
-}
 
-#actionCounter{
-    top:20%;
-    display: none;
-}
-
-div.ColorPickBox {
+.ColorPickBox {
+>>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
     position: absolute;
     background-color: grey;
     margin: 5px;
@@ -243,12 +294,6 @@ body {
     left: 5%;
 }
 
-
-
-
-
-
-
 /* controls*/
 #up {
     width: 20%;
@@ -288,19 +333,29 @@ body {
 
 
 #right {
+<<<<<<< HEAD
     width: 25%;
     height: 26%;
     background: url(../content/arrowRight.png) no-repeat;
     background-color: black;
     background-size: 100%;
+=======
+    width: 30%;
+    height: 20%;
+    background: url("../content/right.png") no-repeat;
+    background-color: black;
+    background-size: 90%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    border-radius: 50%;
+>>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
     position: absolute;
-    top: 35%;
-    left: 70%;
+    top: 25%;
+    left: 68%;
 }
 
-
-
 #left {
+<<<<<<< HEAD
     width: 25%;
     height: 30%;
     background: url(../content/left.png) no-repeat;
@@ -312,6 +367,19 @@ body {
     border-radius: 50%;
     top: 35%;
     left: 10%;
+=======
+    width: 30%;
+    height: 20%;
+    background: url("../content/left.png") no-repeat;
+    background-color: black;
+    background-size:90%;
+    background-position-x: 50%;
+    background-position-y:50%;
+    border-radius: 50%;
+    position: absolute;
+    top:25%;
+    left: 8%;
+>>>>>>> 3f61d705e3016a266360a5162006278dffab0d7c
 }
 
 #action {
