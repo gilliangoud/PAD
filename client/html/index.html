@@ -46,7 +46,8 @@
             prototype webapp controlsBox
         </p>
 
-        <button id="inventoryScreen"> Inventory</button>
+        <button id="inventoryScreen"> Inventory </button>
+        <button id="notepadScreen" onclick="myNotepad()"> Notepad </button>
 
         <div class="box" id="actionCounter">
             <label for="Action points">
@@ -61,9 +62,16 @@
             <button id="down" onclick="modify_qty(-1)"> </button>
             <button id="left" onclick="modify_qty(-1)"> </button>
             <button id="right" onclick="modify_qty(-1)"> </button>
-            <button id="action" onclick="modify_qty(-3)">Action</button>
+            <!-- <button id="action" onclick="modify_qty(-3)">Action</button> -->
+            <button id="action" onclick="myAction()">Action</button>
 
         </p>
+    </div>
+
+    <!--pop-up screen-->
+
+    <div id="popUpBox" style="display:none;">
+
     </div>
 
 
@@ -76,19 +84,41 @@
 
         <p id="middleBox">
 
-        <button id="main" onclick="myMain()"> Main </button>
-                    
+            <button id="main" onclick="myMain()"> Main </button>
+            <button id="notepadScreen1" onclick="myNotepad()"> Notepad </button>
+
         </p>
 
         <p id="bottomBox">
 
             <button id="inventoryBox1"> Item </buttonp>
-            <button id="inventoryBox2"> Item </buttonp>
-            <button id="inventoryBox3"> Item </button>
+                <button id="inventoryBox2"> Item </buttonp>
+                    <button id="inventoryBox3"> Item </button>
 
         </p>
 
     </div>
+
+    <!--kladblok-->
+
+    <div id="notepadDiv" style="display:none">
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <p id="middleBox">
+
+            <button id="main1" onclick="myMain1()"> Main </button>
+            <button id="inventoryScreen" onclick="myInventory()"> Inventory </button>
+
+        </p>
+
+        <p id="bottomBox">
+
+        </p>
+
+    </div>
+
 </body>
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -183,12 +213,29 @@
 
     function myInventory() {
         gameDiv.style.display = 'none';
+        notepadDiv.style.display = 'none';
         inventoryDiv.style.display = 'inline-block';
     }
 
     function myMain() {
         inventoryDiv.style.display = 'none';
+        notepadDiv.style.display = 'none';
         gameDiv.style.display = 'inline-block';
+    }
+
+    function myMain1() {
+        notepadDiv.style.display = 'none';
+        gameDiv.style.display = 'inline-block';
+    }
+
+    function myNotepad() {
+        inventoryDiv.style.display = 'none';
+        gameDiv.style.display = 'none';
+        notepadDiv.style.display = 'inline-block';
+    }
+
+    function myAction() {
+        popUpBox.style.display = 'inline-block';
     }
 
 </script>

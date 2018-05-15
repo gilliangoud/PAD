@@ -28,6 +28,17 @@ body {
     color: #fff;
 }
 
+#popUpBox{
+    width: 80%;
+    height: 60%;
+    background-color: grey;
+    border: 5px solid rgb(104, 9, 9);
+    position: absolute;
+    top: 20%;
+    left: 10%;
+
+}
+
 
 /*start pagina*/
 #startDiv{
@@ -252,6 +263,38 @@ div.ColorPickBox:hover {
     left: 5%;
 }
 
+#notepadScreen{
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+#notepadScreen1{
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+
 #controlsBox{
     width: 100%;
     height: 60%;
@@ -403,6 +446,22 @@ div.ColorPickBox:hover {
     position: absolute;
     top: 5%;
     left: 5%;
+}
+
+#main1 {
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 10%;
+    left: 60%;
 }
 
 #bottomBox{
