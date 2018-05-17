@@ -28,6 +28,24 @@ body {
     color: #fff;
 }
 
+/* pop-up box */
+
+#oke{
+    width: auto;
+    height: auto;
+    background: #000;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #731094;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px;
+    position: relative;
+    top: 80%;
+    left: 75%;
+}
+
 #popUpBox{
     width: 80%;
     height: 60%;
@@ -62,8 +80,8 @@ body {
 #login {
     width: 50%;
     margin: auto;
-    background-color: rgb(2, 20, 70);
-    border: 5px solid rgb(104, 9, 9);
+    background-color: #000000;
+    border: 5px solid #470024;
     border-radius: 30%;
     position: relative;
     top: 15%;
@@ -101,8 +119,8 @@ body {
 #chooseColor{
     width: 50%;
     margin: auto;
-    background-color: rgb(2, 66, 240);
-    border: 5px solid white;
+    background-color: #5B1865;
+    border: 5px solid #2C5784;
     border-radius: 30%;
     padding: 5px;
     color: black;
@@ -139,8 +157,8 @@ div.ColorPickBox:hover {
 #textColor {
     width: 50%;
     margin: auto;
-    background-color: rgb(2, 20, 70); 
-    border: 5px solid rgb(104, 9, 9);
+    background-color: #000000;
+    border: 5px solid #470024;
     border-radius: 50%;
     padding: 10px;
     color: rgb(112, 3, 3);
@@ -154,63 +172,63 @@ div.ColorPickBox:hover {
     background: rgb(0,0,255);
     position: absolute;
     top: 19%;
-    left: 5%;
+    left: 2%;
 }
 
 #ColorRed {
     background: rgb(255,0,0);
     position: absolute;
     top: 19%;
-    left: 38%;
+    left: 35%;
 }
 
 #ColorGreen {
     background: #00FF00;
     position: absolute;
     top: 19%;
-    left: 71%;
+    left: 68%;
 }
 
 #ColorYellow {
     background: Yellow;
     position: absolute;
     top: 46%;
-    left: 5%;
+    left: 2%;
 }
 
 #ColorOrange {
     background: Orange;
     position: absolute;
     top: 46%;
-    left: 38%;
+    left: 35%;
 }
 
 #ColorPink{
     background: Pink;
     position: absolute;
     top: 46%;
-    left: 71%;
+    left: 66%;
 }
 
 #ColorBrown {
     background: Brown;
     position: absolute;
-    top: 71%;
-    left: 5%;
+    top: 73%;
+    left: 2%;
 }
 
 #ColorGray {
     background: Gray;
     position: absolute;
-    top: 71%;
-    left: 38%;
+    top: 73%;
+    left: 35%;
 }
 
 #ColorPurple {
     background: Purple;
     position: absolute;
-    top: 71%;
-    left: 71%;
+    top: 73%;
+    left: 66%;
 }
 
 div.ColorPickBox {
@@ -241,6 +259,8 @@ div.ColorPickBox:hover {
 }
 
 #topBox {
+    width: auto;
+    height: auto;
     position: block;
     margin: auto;
     size: 50%;
@@ -250,49 +270,49 @@ div.ColorPickBox:hover {
 #inventoryScreen {
     width: auto;
     height: auto;
-    background: #000;
+    background-color: #000000;
+    border: 5px solid #470024;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
     font-size: 175%;
-    color: #731094;
+    color:#700303;
     border-radius: 15px;
-    box-shadow: 5px 5px 2px;
+    position: absolute;
+    top: 7.5%;
+    left: 5%;
+}
+
+#inventoryScreen1 {
+    width: auto;
+    height: auto;
+    background-color: #000000;
+    border: 5px solid #470024;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+    color: #700303;
+    border-radius: 15px;
     position: absolute;
     top: 10%;
-    left: 5%;
+    left: 50%;
 }
 
 #notepadScreen{
     width: auto;
     height: auto;
-    background: #000;
+    background-color: #000000;
+    border: 5px solid #470024;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
     font-size: 175%;
-    color: #731094;
+    color: #700303;
     border-radius: 15px;
-    box-shadow: 5px 5px 2px;
     position: absolute;
     top: 20%;
     left: 5%;
-}
-
-#notepadScreen1{
-    width: auto;
-    height: auto;
-    background: #000;
-    line-height: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 175%;
-    color: #731094;
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px;
-    position: absolute;
-    top: 10%;
-    left: 50%;
 }
 
 #controlsBox{
@@ -435,33 +455,33 @@ div.ColorPickBox:hover {
 #main {
     width: auto;
     height: auto;
-    background: #000;
+    background-color: #000000;
+    border: 5px solid #470024;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
     font-size: 175%;
-    color: #731094;
+    color: #700303;
     border-radius: 15px;
-    box-shadow: 5px 5px 2px;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 5%;
 }
 
-#main1 {
+#notepadScreen1{
     width: auto;
     height: auto;
-    background: #000;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
     font-size: 175%;
-    color: #731094;
+    background-color: #000000;
+    border: 5px solid #470024;
+    color: #700303;
     border-radius: 15px;
-    box-shadow: 5px 5px 2px;
     position: absolute;
     top: 10%;
-    left: 60%;
+    left: 50%;
 }
 
 #bottomBox{

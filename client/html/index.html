@@ -40,14 +40,14 @@
     </div>
 
     <!--Control\ingame-->
-    <div id="gameDiv" style="display:none;">
+    <div id="gameDiv"  style="display:none;">
 
         <p id="topBox">
             prototype webapp controlsBox
         </p>
 
         <button id="inventoryScreen"> Inventory </button>
-        <button id="notepadScreen" onclick="myNotepad()"> Notepad </button>
+        <button id="notepadScreen" onclick="myNotepad()"> Clues </button>
 
         <div class="box" id="actionCounter">
             <label for="Action points">
@@ -71,7 +71,7 @@
     <!--pop-up screen-->
 
     <div id="popUpBox" style="display:none;">
-
+        <button id="oke" onclick="myOke()" > oke </button>
     </div>
 
 
@@ -85,7 +85,7 @@
         <p id="middleBox">
 
             <button id="main" onclick="myMain()"> Main </button>
-            <button id="notepadScreen1" onclick="myNotepad()"> Notepad </button>
+            <button id="notepadScreen1" onclick="myNotepad()"> Clues </button>
 
         </p>
 
@@ -103,13 +103,13 @@
 
     <div id="notepadDiv" style="display:none">
         <p id="topBox">
-            prototype webapp Inventory
+            prototype webapp Clues
         </p>
 
         <p id="middleBox">
 
-            <button id="main1" onclick="myMain1()"> Main </button>
-            <button id="inventoryScreen" onclick="myInventory()"> Inventory </button>
+            <button id="main" onclick="myMain1()"> Main </button>
+            <button id="inventoryScreen1" onclick="myInventory()"> Inventory </button>
 
         </p>
 
@@ -236,6 +236,10 @@
 
     function myAction() {
         popUpBox.style.display = 'inline-block';
+    }
+
+    function myOke(){
+        popUpBox.style.display = 'none';
     }
 
 </script>
