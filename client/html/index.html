@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+
+<body>
+    <!--Start-->
+    <div id="startDiv">
+        <center>
+            <div id="chooseName">
+                <div id="login">
+                    Gebruikersnaam:
+                    <input name="GebruikersNaam" id="username" type="text" value="">
+                </div>
+                <br>
+                <div>
+                    <br>
+                    <button id="chooseColor" onclick="hideButton()">choose Color</button>
+                </div>
+            </div>
+        </center>
+
+
+        <div id="colorPicker">
+            <h2 id="textColor"> Pick a Color </h2>
+            <div class="ColorPickBox" id="ColorBlue"> Blue </div>
+            <div class="ColorPickBox" id="ColorRed"> Red </div>
+            <div class="ColorPickBox" id="ColorGreen"> Green </div>
+            <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
+            <div class="ColorPickBox" id="ColorOrange"> Orange </div>
+            <div class="ColorPickBox" id="ColorPink"> Pink </div>
+            <div class="ColorPickBox" id="ColorBrown"> Brown </div>
+            <div class="ColorPickBox" id="ColorGray"> Gray </div>
+            <div class="ColorPickBox" id="ColorPurple"> Purple </div>
+        </div>
+
+    </div>
+
+    <!--Control\ingame-->
+    <div id="gameDiv" style="display:none;">
+
+        <p id="topBox">
+            prototype webapp controlsBox
+        </p>
+
+        <button id="inventoryScreen"> Inventory </button>
+        <button id="notepadScreen" onclick="myNotepad()"> Notepad </button>
+
+        <div class="box" id="actionCounter">
+            <label for="Action points">
+                <abbr title="Action points">Action points</abbr>
+            </label>
+            <input id="qty" class="input" value="10" disabled="true" />
+        </div>
+
+        <p id="controlsBox">
+
+            <button id="up" onclick="modify_qty(-1)"> </button>
+            <button id="down" onclick="modify_qty(-1)"> </button>
+            <button id="left" onclick="modify_qty(-1)"> </button>
+            <button id="right" onclick="modify_qty(-1)"> </button>
+            <!-- <button id="action" onclick="modify_qty(-3)">Action</button> -->
+            <button id="action" onclick="myAction()">Action</button>
+            <button id="endTurn" onclick="turnOver()">End turn</button>
+
+        </p>
+
+            
+    </div>
+
+    <!--pop-up screen-->
+
+    <div id="popUpBox" style="display:none;">
+
+    </div>
+
+
+    <!--Inventory-->
+    <div id="inventoryDiv" style="display:none;">
+
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <p id="middleBox">
+
+            <button id="main" onclick="myMain()"> Main </button>
+            <button id="notepadScreen1" onclick="myNotepad()"> Notepad </button>
+
+        </p>
+
+        <p id="bottomBox">
+
+            <button id="inventoryBox1"> Item </buttonp>
+                <button id="inventoryBox2"> Item </buttonp>
+                    <button id="inventoryBox3"> Item </button>
+                    <button id="useItem1">use</button>
+                    <button id="dropItem1">drop</button>
+                    <button id="useItem2">use</button>
+                    <button id="dropItem2">drop</button>
+                    <button id="useItem3">use</button>
+                    <button id="dropItem3">drop</button>
+
+        </p>
+
+    </div>
+
+    <!--kladblok-->
+
+    <div id="notepadDiv" style="display:none">
+        <p id="topBox">
+            prototype webapp Inventory
+        </p>
+
+        <p id="middleBox">
+
+            <button id="main1" onclick="myMain1()"> Main </button>
+            <button id="inventoryScreen" onclick="myInventory()"> Inventory </button>
+
+        </p>
+
+        <p id="bottomBox">
+
+        </p>
+
+    </div>
+    <!-- readyscherm -->
+    <div id="readySchermDiv" style="display:none">
+    <button id="ready" onclick="showMain()">Ready</button>
+    </div>
+
+
+</body>
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+<script src="../js/inventory.js"></script>
+
+
+
+<script>
+
+
+    function hideButton() {
+       var readySchermDiv = document.getElementById("readySchermDiv");
+        var colorP = document.getElementById("colorPicker");
+        var chooseName = document.getElementById("chooseName");
+        readySchermDiv.style.display = "inline-block";
+
+        colorP.style.display = "none";
+        chooseName.style.display = "none";
+    }
+
+    function showMain(){
+        var gameDiv =document.getElementById("gameDiv");
+        var ActionC = document.getElementById("actionCounter");
+        var readyButton = document.getElementById("ready");
+        readySchermDiv.style.display = "none";
+        readyButton.style.display = "none";
+        gameDiv.style.display = "inline-block";
+        actionC.style.display = "inline-block";
+    }
+
+    function checkField() {
+        var x = document.getElementById("username").value;
+
+        if (x === "") {
+            alert("Insert name")
+            return false;
+        } else {
+            return true;
+        }
+        if (x == true) {
+            window.location.href = "index.html";
+        }
+    }
+
+    var socket = io();
+    document.getElementById("up").addEventListener("click", emitMove);
+    document.getElementById("down").addEventListener("click", emitMove);
+    document.getElementById("left").addEventListener("click", emitMove);
+    document.getElementById("right").addEventListener("click", emitMove);
+    document.getElementById("action").addEventListener("click", emitAction);
+    document.getElementById("endTurn").addEventListener("click", endTurn);
+    //actions
+    document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+    document.getElementById("main").addEventListener("click", myMain);
+    document.getElementById("readyScherm").addEventListener("click", ready);
+
+    //inventory buttons
+    document.getElementBId("useItem1").addEventListener("click", useItem);
+    document.getElementById("dropItem1").addEventListener("click", dropItem);
+    document.getElementBId("useItem2").addEventListener("click", useItem);
+    document.getElementById("dropItem2").addEventListener("click", dropItem);
+    document.getElementBId("useItem3").addEventListener("click", useItem);
+    document.getElementById("dropItem2").addEventListener("click", dropItem);
+
+    function emitMove() {
+        socket.emit("move", this.id);
+    }
+
+    function emitAction() {
+        socket.emit("move", this.id);
+    }
+
+    function endTurn(){
+        socket.emit("turn over", this.id);  
+    }
+
+    function useItem(){
+        socket.emit("use item", this.id);
+    }
+
+    function dropItem(){
+        socket.emit("Drop item", this.id);
+    }
+
+    /*action deplete on move*/
+
+        
+    function modify_qty(val) {
+        var qty = document.getElementById('qty').value;
+        var new_qty = parseInt(qty, 10) + val;
+        var endTurn=document.getElementById("endTurn");
+
+        if (new_qty < 3) {
+            document.getElementById("action").disabled = true;
+        }
+
+        if (new_qty <= 0) {
+            new_qty = 0
+            document.getElementById("action").disabled = true;
+            document.getElementById("up").disabled = true;
+            document.getElementById("down").disabled = true;
+            document.getElementById("left").disabled = true;
+            document.getElementById("right").disabled = true;
+
+        }
+        if(endTurn.clicked== true){
+            socket.emit("endturn", this.id);
+       new_qty=10;
+        }
+
+
+        
+        document.getElementById('qty').value = new_qty;
+        return new_qty;
+       /* turnOver();
+        return turnOver();
+        */
+    }
+
+   /* function turnOver() {
+        socket.emit("endturn", this.id);
+       modify_qty.new_qty=10;
+        return modify_qty.new_qty;
+
+    }
+    */
+
+
+    function myInventory() {
+        gameDiv.style.display = 'none';
+        notepadDiv.style.display = 'none';
+        inventoryDiv.style.display = 'inline-block';
+    }
+
+    function myMain() {
+        inventoryDiv.style.display = 'none';
+        notepadDiv.style.display = 'none';
+        gameDiv.style.display = 'inline-block';
+    }
+
+    function myMain1() {
+        notepadDiv.style.display = 'none';
+        gameDiv.style.display = 'inline-block';
+    }
+
+    function myNotepad() {
+        inventoryDiv.style.display = 'none';
+        gameDiv.style.display = 'none';
+        notepadDiv.style.display = 'inline-block';
+    }
+
+    function myAction() {
+        popUpBox.style.display = 'inline-block';
+    }
+    
+    function ready(){
+        readySchermDiv.style.display='inline-box';
+        socket.emit("ready", this.id);
+    }
+</script>
+
+</html>
