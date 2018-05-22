@@ -499,7 +499,7 @@ div.ColorPickBox:hover {
     width: 90%;
     height: 70%;
     border: 5px dotted #470024;
-    position: relative;
+    position: absolute;
     left: 5%;
     top: 20%;
 }
