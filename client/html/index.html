@@ -31,21 +31,21 @@
 
         <div id="colorPicker">
             <h2 id="textColor"> Pick a Color </h2>
-            <div class="ColorPickBox" id="ColorBlue"> Blue </div>
-            <div class="ColorPickBox" id="ColorRed"> Red </div>
-            <div class="ColorPickBox" id="ColorGreen"> Green </div>
-            <div class="ColorPickBox" id="ColorYellow"> Yellow </div>
-            <div class="ColorPickBox" id="ColorOrange"> Orange </div>
-            <div class="ColorPickBox" id="ColorPink"> Pink </div>
-            <div class="ColorPickBox" id="ColorBrown"> Brown </div>
-            <div class="ColorPickBox" id="ColorGray"> Gray </div>
-            <div class="ColorPickBox" id="ColorPurple"> Purple </div>
+            <div class="ColorPickBox" id="ColorBlue" onclick="changeColorBlue()"> Blue </div>
+            <div class="ColorPickBox" id="ColorRed" onclick="changeColorRed()"> Red </div>
+            <div class="ColorPickBox" id="ColorGreen" onclick="changeColorGreen()"> Green </div>
+            <div class="ColorPickBox" id="ColorYellow" onclick="changeColorYellow()"> Yellow </div>
+            <div class="ColorPickBox" id="ColorOrange" onclick="changeColorOrange()"> Orange </div>
+            <div class="ColorPickBox" id="ColorPink" onclick="changeColorPink()"> Pink </div>
+            <div class="ColorPickBox" id="ColorBrown" onclick="changeColorBrown()"> Brown </div>
+            <div class="ColorPickBox" id="ColorGray" onclick="changeColorGray()"> Gray </div>
+            <div class="ColorPickBox" id="ColorPurple" onclick="changeColorPurple()"> Purple </div>
         </div>
 
     </div>
 
     <!--Control\ingame-->
-    <div id="gameDiv"  style="display:none;">
+    <div id="gameDiv" style="display:none;">
 
         <div id="topBox">
             webapp Controls
@@ -74,10 +74,10 @@
                 <img id="controlImg" src="../content/right.png"> </button>
             <button id="action" onclick="modify_qty(-3)">Action</button>
             <button id="action" onclick="myAction()">Action</button>
-          
+
             <button id="endTurn" onclick="turnOver()">End turn</button>
-            
-            
+
+
 
         </div>
     </div>
@@ -117,7 +117,7 @@
                 <button id="dropItem2">drop</button>
             </div>
 
-            <div id="inventoryBox3"> 
+            <div id="inventoryBox3">
                 Item 3
                 <button id="useItem3">use</button>
                 <button id="dropItem3">drop</button>
@@ -167,6 +167,34 @@
 
 
 <script>
+
+    function changeColorBlue() {
+        document.getElementById('chooseColor').style.backgroundColor = "rgb(0,0,255)";
+    }
+    function changeColorRed() {
+        document.getElementById('chooseColor').style.backgroundColor = "rgb(255,0,0)";
+    }
+    function changeColorGreen() {
+        document.getElementById('chooseColor').style.backgroundColor = "#00FF00";
+    }
+    function changeColorYellow() {
+        document.getElementById('chooseColor').style.backgroundColor = "yellow";
+    }
+    function changeColorOrange() {
+        document.getElementById('chooseColor').style.backgroundColor = "orange";
+    }
+    function changeColorPink() {
+        document.getElementById('chooseColor').style.backgroundColor = "pink";
+    }
+    function changeColorBrown() {
+        document.getElementById('chooseColor').style.backgroundColor = "brown";
+    }
+    function changeColorGray() {
+        document.getElementById('chooseColor').style.backgroundColor = "gray";
+    }
+    function changeColorPurple() {
+        document.getElementById('chooseColor').style.backgroundColor = "Purple";
+    }
 
     function hideButton() {
         var gameDiv = document.getElementById("gameDiv");

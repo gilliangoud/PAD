@@ -132,8 +132,10 @@ body {
 
 #chooseColor{
     width: 50%;
+    font-family: 'Segoe Print';
+    font-size: 100%;
+    font-weight: bolder;
     margin: auto;
-    background-color: #5B1865;
     border: 5px solid #2C5784;
     border-radius: 30%;
     padding: 5px;
