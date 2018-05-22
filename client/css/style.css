@@ -186,14 +186,14 @@ div.ColorPickBox:hover {
 /*collor buttons*/
 
 #ColorBlue {
-    background: rgb(0,0,255);
+    background: #0000ff;
     position: absolute;
     top: 19%;
-    left: 2%;
+    left: 2%; 
 }
 
 #ColorRed {
-    background: rgb(255,0,0);
+    background: #ff0000;
     position: absolute;
     top: 19%;
     left: 35%;
@@ -207,42 +207,42 @@ div.ColorPickBox:hover {
 }
 
 #ColorYellow {
-    background: Yellow;
+    background: #ffff00;
     position: absolute;
     top: 46%;
     left: 2%;
 }
 
 #ColorOrange {
-    background: Orange;
+    background: #ffa500;
     position: absolute;
     top: 46%;
     left: 35%;
 }
 
 #ColorPink{
-    background: Pink;
+    background: #ffc0cb;
     position: absolute;
     top: 46%;
     left: 68%;
 }
 
 #ColorBrown {
-    background: Brown;
+    background: #a52a2a;
     position: absolute;
     top: 73%;
     left: 2%;
 }
 
 #ColorGray {
-    background: Gray;
+    background: #808080;
     position: absolute;
     top: 73%;
     left: 35%;
 }
 
 #ColorPurple {
-    background: Purple;
+    background: #800080;
     position: absolute;
     top: 73%;
     left: 68%;
@@ -255,11 +255,12 @@ div.ColorPickBox {
     width: 80px;
     height: 80px; 
     border: 2px solid white;
-    font-weight: bold;
+    font-weight: bolder;
     text-align: center;
     line-height: 80px;
     border-radius: 100px;
     display: inline-block;
+    font-family: 'Segoe Print';
 }
 
 div.ColorPickBox:hover {
@@ -570,75 +571,6 @@ div.ColorPickBox:hover {
     left: 3%;
     top: 70%;
 }
-
-#useItem2{
-    width: auto;
-    height: auto;
-    background-color: #000000;
-    border: 2px solid #470024;
-    line-height: 25px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 125%;
-    color: #731094;;
-    border-radius: 15px;
-    position: absolute;
-    left: 0%;
-    top: 70%;
-
-}
-
-#dropItem2{
-    width: auto;
-    height: auto;
-    background-color: #000000;
-    border: 2px solid #470024;
-    line-height: 25px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 125%;
-    color: #731094;;
-    border-radius: 15px;
-    position: relative;
-    left: 3%;
-    top: 70%;
-
-}
-
-#useItem3{
-    width: auto;
-    height: auto;
-    background-color: #000000;
-    border: 2px solid #470024;
-    line-height: 25px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 125%;
-    color: #731094;;
-    border-radius: 15px;
-    position: absolute;
-    left: 0%;
-    top: 70%;
-
-}
-
-#dropItem3{
-    width: auto;
-    height: auto;
-    background-color: #000000;
-    border: 2px solid #470024;
-    line-height: 25px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 125%;
-    color: #731094;;
-    border-radius: 15px;
-    position: relative;
-    left: 3%;
-    top: 70%;
-
-}
-
 /*Clues*/
 
 #main1 {
