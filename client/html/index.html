@@ -129,6 +129,16 @@
 
     </div>
 
+    </div>
+
+    <!-- readyscherm -->
+
+    <div id="readySchermDiv" style="display:none">
+
+        <button id="ready" onclick="showMain()">Ready</button>
+        
+    </div>
+
 </body>
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -141,7 +151,7 @@
 
     var inventory = new Inventory(null);
 
-    function inventoryItems(item){
+    function inventoryItems(item) {
         inventory.items = item;
         inventory.refreshRender();
     }
@@ -182,7 +192,7 @@
     document.getElementById("main1").addEventListener("click", myMain1);
     document.getElementById("notepadScreen").addEventListener("click", myNotepad);
     document.getElementById("notepadScreen1").addEventListener("click", myNotepad);
-    document.getElementById("oke").addEventListener("click",myOke);
+    document.getElementById("oke").addEventListener("click", myOke);
 
     function emitMove() {
         socket.emit("move", this.id);
