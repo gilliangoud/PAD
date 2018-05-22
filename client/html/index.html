@@ -73,6 +73,7 @@
                 <img id="controlImg" src="../content/right.png"> </button>
             <button id="action" onclick="modify_qty(-3)">Action</button>
             <button id="action" onclick="myAction()">Action</button>
+            <button id="endTurn" onclick="turnOver()">End turn</button>
 
         </p>
     </div>
@@ -103,6 +104,12 @@
             <button id="inventoryBox1"> Item </buttonp>
                 <button id="inventoryBox2"> Item </buttonp>
                     <button id="inventoryBox3"> Item </button>
+                    <button id="useItem1">use</button>
+                    <button id="dropItem1">drop</button>
+                    <button id="useItem2">use</button>
+                    <button id="dropItem2">drop</button>
+                    <button id="useItem3">use</button>
+                    <button id="dropItem3">drop</button>
 
         </p>
 
@@ -136,7 +143,7 @@
     <div id="readySchermDiv" style="display:none">
 
         <button id="ready" onclick="showMain()">Ready</button>
-        
+
     </div>
 
 </body>
@@ -149,20 +156,21 @@
 
 <script>
 
-    var inventory = new Inventory(null);
-
-    function inventoryItems(item) {
-        inventory.items = item;
-        inventory.refreshRender();
-    }
-
     function hideButton() {
         var gameDiv = document.getElementById("gameDiv");
         var ActionC = document.getElementById("actionCounter");
         var colorP = document.getElementById("colorPicker");
         var chooseName = document.getElementById("chooseName");
-        gameDiv.style.display = "inline-block";
         startDiv.style.display = "none";
+        readySchermDiv.style.display = "inline-block";
+    }
+
+    function showMain(){
+        var gameDiv =document.getElementById("gameDiv");
+        var ActionC = document.getElementById("actionCounter");
+        var readyButton = document.getElementById("ready");
+        readySchermDiv.style.display = "none";
+        gameDiv.style.display = "inline-block";
     }
 
     function checkField() {
@@ -201,6 +209,19 @@
     function emitAction() {
         socket.emit("move", this.id);
     }
+
+    function endTurn() {
+        socket.emit("turn over", this.id);
+    }
+
+    function useItem() {
+        socket.emit("use item", this.id);
+    }
+
+    function dropItem() {
+        socket.emit("Drop item", this.id);
+    }
+
 
     /*action deplete on move*/
 
@@ -269,6 +290,11 @@
 
     function myOke() {
         popUpBox.style.display = 'none';
+    }
+
+    function ready() {
+        readySchermDiv.style.display = 'inline-block';
+        socket.emit("ready", this.id);
     }
 
 </script>
