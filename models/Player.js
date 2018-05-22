@@ -1,5 +1,5 @@
 Player = class Player {
-    constructor (socketID){
+    constructor(socketID) {
         this.id = socketID;
         this.x = 1;
         this.y = 1;
@@ -10,7 +10,7 @@ Player = class Player {
         let old_x = this.x;
         let old_y = this.y;
 
-        switch(direction){
+        switch (direction) {
             case "up": this.y++; break;
             case "down": this.y--; break;
             case "right": this.x++; break;

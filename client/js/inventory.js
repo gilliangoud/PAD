@@ -75,3 +75,5 @@ Item("test", "Test", function () {
     inventory.removeItem('test', 1);
     alert = "test removed";
 });
+
+module.exports = Inventory;

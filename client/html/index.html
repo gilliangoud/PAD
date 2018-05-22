@@ -52,7 +52,7 @@
         </p>
 
         <button id="inventoryScreen"> Inventory </button>
-        <button id="notepadScreen" onclick="myNotepad()"> Clues </button>
+        <button id="notepadScreen"> Clues </button>
 
         <div class="box" id="actionCounter">
             <label for="Action points">
@@ -71,7 +71,7 @@
                 <img id="controlImg" src="../content/left.png"> </button>
             <button id="right" onclick="modify_qty(-1)">
                 <img id="controlImg" src="../content/right.png"> </button>
-            <!-- <button id="action" onclick="modify_qty(-3)">Action</button> -->
+            <button id="action" onclick="modify_qty(-3)">Action</button>
             <button id="action" onclick="myAction()">Action</button>
 
         </p>
@@ -80,7 +80,7 @@
     <!--pop-up screen-->
 
     <div id="popUpBox" style="display:none;">
-        <button id="oke" onclick="myOke()"> oke </button>
+        <button id="oke"> oke </button>
     </div>
 
 
@@ -93,8 +93,8 @@
 
         <p id="middleBox">
 
-            <button id="main" onclick="myMain()"> Main </button>
-            <button id="notepadScreen1" onclick="myNotepad()"> Clues </button>
+            <button id="main"> Main </button>
+            <button id="notepadScreen1"> Clues </button>
 
         </p>
 
@@ -118,8 +118,8 @@
 
         <p id="middleBox">
 
-            <button id="main" onclick="myMain1()"> Main </button>
-            <button id="inventoryScreen1" onclick="myInventory()"> Inventory </button>
+            <button id="main1"> Main </button>
+            <button id="inventoryScreen1"> Inventory </button>
 
         </p>
 
@@ -139,6 +139,12 @@
 
 <script>
 
+    var inventory = new Inventory(null);
+
+    function inventoryItems(item){
+        inventory.items = item;
+        inventory.refreshRender();
+    }
 
     function hideButton() {
         var gameDiv = document.getElementById("gameDiv");
@@ -171,7 +177,12 @@
     document.getElementById("action").addEventListener("click", emitAction);
     //actions
     document.getElementById("inventoryScreen").addEventListener("click", myInventory);
+    document.getElementById("inventoryScreen1").addEventListener("click", myInventory);
     document.getElementById("main").addEventListener("click", myMain);
+    document.getElementById("main1").addEventListener("click", myMain1);
+    document.getElementById("notepadScreen").addEventListener("click", myNotepad);
+    document.getElementById("notepadScreen1").addEventListener("click", myNotepad);
+    document.getElementById("oke").addEventListener("click",myOke);
 
     function emitMove() {
         socket.emit("move", this.id);
