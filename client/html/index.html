@@ -10,9 +10,9 @@
     <!--Start-->
     <div id="startDiv">
 
-        <p id="topBox">
+        <div id="topBox">
             webapp StartScreen
-        </p>
+        </div>
 
         <center>
             <div id="chooseName">
@@ -45,11 +45,11 @@
     </div>
 
     <!--Control\ingame-->
-    <div id="gameDiv" style="display:none;">
+    <div id="gameDiv"  style="display:none;">
 
-        <p id="topBox">
+        <div id="topBox">
             webapp Controls
-        </p>
+        </div>
 
         <button id="inventoryScreen"> Inventory </button>
         <button id="notepadScreen"> Clues </button>
@@ -58,10 +58,11 @@
             <label for="Action points">
                 <abbr title="Action points">Action points</abbr>
             </label>
+
             <input id="qty" class="input" value="10" disabled="true" />
         </div>
 
-        <p id="controlsBox">
+        <div id="controlsBox">
 
             <button id="up" onclick="modify_qty(-1)">
                 <img id="controlImg" src="../content/up.png"> </button>
@@ -73,9 +74,12 @@
                 <img id="controlImg" src="../content/right.png"> </button>
             <button id="action" onclick="modify_qty(-3)">Action</button>
             <button id="action" onclick="myAction()">Action</button>
+          
             <button id="endTurn" onclick="turnOver()">End turn</button>
+            
+            
 
-        </p>
+        </div>
     </div>
 
     <!--pop-up screen-->
@@ -88,30 +92,38 @@
     <!--Inventory-->
     <div id="inventoryDiv" style="display:none;">
 
-        <p id="topBox">
+        <div id="topBox">
             webapp Inventory
-        </p>
+        </div>
 
-        <p id="middleBox">
+        <div id="middleBox">
 
             <button id="main"> Main </button>
             <button id="notepadScreen1"> Clues </button>
 
-        </p>
+        </div>
 
-        <p id="bottomBox">
+        <div id="bottomBox">
 
-            <button id="inventoryBox1"> Item </buttonp>
-                <button id="inventoryBox2"> Item </buttonp>
-                    <button id="inventoryBox3"> Item </button>
-                    <button id="useItem1">use</button>
-                    <button id="dropItem1">drop</button>
-                    <button id="useItem2">use</button>
-                    <button id="dropItem2">drop</button>
-                    <button id="useItem3">use</button>
-                    <button id="dropItem3">drop</button>
+            <div id="inventoryBox1">
+                Item 1
+                <button id="useItem1">use</button>
+                <button id="dropItem1">drop</button>
+            </div>
 
-        </p>
+            <div id="inventoryBox2">
+                Item 2
+                <button id="useItem2">use</button>
+                <button id="dropItem2">drop</button>
+            </div>
+
+            <div id="inventoryBox3"> 
+                Item 3
+                <button id="useItem3">use</button>
+                <button id="dropItem3">drop</button>
+            </div>
+
+        </div>
 
     </div>
 
@@ -119,20 +131,20 @@
 
     <div id="notepadDiv" style="display:none">
 
-        <p id="topBox">
+        <div id="topBox">
             webapp Clues
-        </p>
+        </div>
 
-        <p id="middleBox">
+        <div id="middleBox">
 
             <button id="main1"> Main </button>
             <button id="inventoryScreen1"> Inventory </button>
 
-        </p>
+        </div>
 
-        <p id="bottomBox">
+        <div id="bottomBox">
 
-        </p>
+        </div>
 
     </div>
 
@@ -165,8 +177,8 @@
         readySchermDiv.style.display = "inline-block";
     }
 
-    function showMain(){
-        var gameDiv =document.getElementById("gameDiv");
+    function showMain() {
+        var gameDiv = document.getElementById("gameDiv");
         var ActionC = document.getElementById("actionCounter");
         var readyButton = document.getElementById("ready");
         readySchermDiv.style.display = "none";
